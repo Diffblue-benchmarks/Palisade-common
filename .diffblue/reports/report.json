@@ -1,0 +1,2897 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.09.01-44e352d-licensed",
+    "creationTimestamp" : "2025-09-19T08:49:45.274851Z",
+    "command" : "dcover create --coverage-reports --upload http://localhost:8080 --project-name Palisade-common --name with-diffblue-tests",
+    "totalTime" : 204.454,
+    "environmentDetectionTime" : 0.417,
+    "indexingTime" : 0.336,
+    "entryPointsTime" : 0.391,
+    "generationTime" : 110.77,
+    "timeToFirstTest" : 59.881,
+    "timeToLastTest" : 165.751,
+    "indexQueryTime" : 7.05,
+    "verificationTime" : 11.542,
+    "validationTime" : 13.992
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R002" : "Missing observers",
+    "R004" : "No meaningful assertions found",
+    "R005" : "Unable to load class",
+    "R013" : "No inputs found that don't throw a trivial exception",
+    "R015" : "Method may be nondeterministic",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T002" : "Trivial setter",
+    "T003" : "Private method",
+    "T005" : "Trivial constructor",
+    "T009" : "No implementation for abstract class",
+    "T010" : "Abstract or interface method",
+    "T012" : "Synthetic method",
+    "T020" : "Other trivial method",
+    "T023" : "Testability unknown",
+    "V000" : "Validated successfully"
+  },
+  "summary" : {
+    "classesCount" : 29,
+    "methodsCount" : 207,
+    "cumulativeDiffblueTestCount" : 133,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 133,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 1124,
+    "perMethodTestability" : {
+      "T000" : 94,
+      "T001" : 6,
+      "T002" : 5,
+      "T003" : 7,
+      "T005" : 8,
+      "T009" : 11,
+      "T010" : 33,
+      "T012" : 34,
+      "T020" : 5,
+      "T023" : 4
+    },
+    "perMethodOutcome" : {
+      "R000" : 102,
+      "R002" : 2,
+      "R004" : 7,
+      "R005" : 1,
+      "R013" : 2,
+      "R015" : 4,
+      "T003" : 7,
+      "T009" : 11,
+      "T010" : 33,
+      "T012" : 34,
+      "T023" : 4
+    },
+    "perTestOutcome" : {
+      "R000" : 133
+    },
+    "perTestValidation" : {
+      "V000" : 133
+    }
+  },
+  "classes" : {
+    "uk.gov.gchq.palisade.Context" : {
+      "methodsCount" : 14,
+      "completeTestCount" : 16,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 11,
+        "T001" : 1,
+        "T002" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 14
+      },
+      "perTestOutcome" : {
+        "R000" : 16
+      }
+    },
+    "uk.gov.gchq.palisade.data.serialise.Serialiser" : {
+      "methodsCount" : 14,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T009" : 2,
+        "T010" : 2,
+        "T012" : 7,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "T009" : 2,
+        "T010" : 2,
+        "T012" : 7,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      }
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource" : {
+      "methodsCount" : 20,
+      "completeTestCount" : 24,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 19,
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 17,
+        "R004" : 1,
+        "R015" : 1,
+        "T010" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 24
+      }
+    },
+    "uk.gov.gchq.palisade.resource.AbstractResource" : {
+      "methodsCount" : 10,
+      "completeTestCount" : 10,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 7,
+        "T010" : 1,
+        "T012" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 6,
+        "R015" : 1,
+        "T010" : 1,
+        "T012" : 1,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 10
+      }
+    },
+    "uk.gov.gchq.palisade.resource.ChildResource" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "uk.gov.gchq.palisade.resource.ConnectionDetail" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "uk.gov.gchq.palisade.resource.LeafResource" : {
+      "methodsCount" : 12,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 12
+      },
+      "perMethodOutcome" : {
+        "T010" : 12
+      }
+    },
+    "uk.gov.gchq.palisade.resource.Resource" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 3
+      },
+      "perMethodOutcome" : {
+        "T010" : 3
+      }
+    },
+    "uk.gov.gchq.palisade.resource.impl.DirectoryResource" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "R013" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      }
+    },
+    "uk.gov.gchq.palisade.resource.impl.FileResource" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 7,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 7,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 7,
+        "R013" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 7
+      }
+    },
+    "uk.gov.gchq.palisade.resource.impl.SimpleConnectionDetail" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 8,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T001" : 1,
+        "T002" : 1,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 8
+      },
+      "perTestOutcome" : {
+        "R000" : 8
+      }
+    },
+    "uk.gov.gchq.palisade.resource.impl.SystemResource" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      }
+    },
+    "uk.gov.gchq.palisade.rule.Rule" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 1,
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T009" : 1,
+        "T010" : 1
+      }
+    },
+    "uk.gov.gchq.palisade.rule.Rules" : {
+      "methodsCount" : 15,
+      "completeTestCount" : 15,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 8,
+        "T001" : 2,
+        "T002" : 1,
+        "T005" : 1,
+        "T012" : 2,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 12,
+        "R004" : 1,
+        "T012" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 15
+      }
+    },
+    "uk.gov.gchq.palisade.user.User" : {
+      "methodsCount" : 19,
+      "completeTestCount" : 30,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 15,
+        "T001" : 1,
+        "T002" : 1,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 19
+      },
+      "perTestOutcome" : {
+        "R000" : 30
+      }
+    },
+    "uk.gov.gchq.palisade.user.UserId" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 8,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T001" : 1,
+        "T002" : 1,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 8
+      },
+      "perTestOutcome" : {
+        "R000" : 8
+      }
+    },
+    "uk.gov.gchq.palisade.util.AbstractResourceBuilder" : {
+      "methodsCount" : 10,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T010" : 3,
+        "T012" : 2,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R004" : 1,
+        "R015" : 2,
+        "T010" : 3,
+        "T012" : 2,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "uk.gov.gchq.palisade.util.FileResourceBuilder" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T003" : 4,
+        "T005" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 3,
+        "T003" : 4,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "uk.gov.gchq.palisade.util.RulesUtil" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T003" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R005" : 1,
+        "T003" : 1,
+        "T012" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      }
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder" : {
+      "methodsCount" : 17,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T003" : 1,
+        "T012" : 13
+      },
+      "perMethodOutcome" : {
+        "R002" : 1,
+        "R004" : 2,
+        "T003" : 1,
+        "T012" : 13
+      }
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder" : {
+      "methodsCount" : 12,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T003" : 1,
+        "T012" : 8
+      },
+      "perMethodOutcome" : {
+        "R002" : 1,
+        "R004" : 2,
+        "T003" : 1,
+        "T012" : 8
+      }
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder$IHost" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 1,
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T009" : 1,
+        "T010" : 1
+      }
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder$IPort" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 1,
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T009" : 1,
+        "T010" : 1
+      }
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder$IUserInfo" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 1,
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T009" : 1,
+        "T010" : 1
+      }
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$IAuthority" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 1,
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T009" : 1,
+        "T010" : 1
+      }
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$IFragment" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 1,
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T009" : 1,
+        "T010" : 1
+      }
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$IPath" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 1,
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T009" : 1,
+        "T010" : 1
+      }
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$IQuery" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 1,
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T009" : 1,
+        "T010" : 1
+      }
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$IScheme" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 1,
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T009" : 1,
+        "T010" : 1
+      }
+    }
+  },
+  "methods" : {
+    "uk.gov.gchq.palisade.Context.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        48,
+        49
+      ]
+    },
+    "uk.gov.gchq.palisade.Context.<init>:(Ljava/util/Map;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        58,
+        59,
+        60
+      ]
+    },
+    "uk.gov.gchq.palisade.Context.contents:(Ljava/util/Map;)Luk/gov/gchq/palisade/Context;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        70,
+        71
+      ]
+    },
+    "uk.gov.gchq.palisade.Context.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        178,
+        179,
+        181,
+        182,
+        184,
+        185
+      ]
+    },
+    "uk.gov.gchq.palisade.Context.get:(Ljava/lang/String;)Ljava/lang/Object;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        142
+      ]
+    },
+    "uk.gov.gchq.palisade.Context.getContents:()Ljava/util/Map;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        81
+      ]
+    },
+    "uk.gov.gchq.palisade.Context.getContentsCopy:()Ljava/util/Map;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        103
+      ]
+    },
+    "uk.gov.gchq.palisade.Context.getPurpose:()Ljava/lang/String;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        128,
+        129,
+        130
+      ]
+    },
+    "uk.gov.gchq.palisade.Context.hashCode:()I" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        191
+      ]
+    },
+    "uk.gov.gchq.palisade.Context.purpose:(Ljava/lang/String;)Luk/gov/gchq/palisade/Context;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        115,
+        116
+      ]
+    },
+    "uk.gov.gchq.palisade.Context.put:(Ljava/lang/String;Ljava/lang/Object;)Luk/gov/gchq/palisade/Context;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        154,
+        155,
+        156,
+        157
+      ]
+    },
+    "uk.gov.gchq.palisade.Context.putIfAbsent:(Ljava/lang/String;Ljava/lang/Object;)Luk/gov/gchq/palisade/Context;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        169,
+        170,
+        171,
+        172
+      ]
+    },
+    "uk.gov.gchq.palisade.Context.setContents:(Ljava/util/Map;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        91,
+        92,
+        93
+      ]
+    },
+    "uk.gov.gchq.palisade.Context.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        197,
+        198,
+        199,
+        197
+      ]
+    },
+    "uk.gov.gchq.palisade.data.serialise.Serialiser.$deserializeLambda$:(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        47
+      ]
+    },
+    "uk.gov.gchq.palisade.data.serialise.Serialiser.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "uk.gov.gchq.palisade.data.serialise.Serialiser.create:(Ljava/lang/Class;Ljava/lang/Class;)Luk/gov/gchq/palisade/data/serialise/Serialiser;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        70,
+        71,
+        72,
+        73
+      ]
+    },
+    "uk.gov.gchq.palisade.data.serialise.Serialiser.deserialise:(Ljava/io/InputStream;)Ljava/util/stream/Stream;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.data.serialise.Serialiser.deserialiseFlow:()Lakka/stream/javadsl/Flow;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        135
+      ]
+    },
+    "uk.gov.gchq.palisade.data.serialise.Serialiser.lambda$deserialiseFlow$1:(Lakka/stream/Materializer;Lakka/stream/Attributes;)Lakka/stream/javadsl/Flow;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        136,
+        137,
+        138,
+        139,
+        140,
+        141
+      ]
+    },
+    "uk.gov.gchq.palisade.data.serialise.Serialiser.lambda$deserialiseFlow$53520e23$1:(Ljava/util/stream/Stream;)Ljava/util/stream/BaseStream;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        140
+      ]
+    },
+    "uk.gov.gchq.palisade.data.serialise.Serialiser.lambda$deserialiseFlow$a3bf7913$1:(Ljava/util/stream/Stream;)Lakka/stream/Graph;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        140
+      ]
+    },
+    "uk.gov.gchq.palisade.data.serialise.Serialiser.lambda$serialiseFlow$0:(Lakka/stream/Materializer;Lakka/stream/Attributes;)Lakka/stream/javadsl/Flow;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        112,
+        113,
+        114,
+        115,
+        116,
+        117
+      ]
+    },
+    "uk.gov.gchq.palisade.data.serialise.Serialiser.lambda$serialiseFlow$f0cd8ea3$1:(Ljava/io/InputStream;)Lakka/stream/Graph;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        116
+      ]
+    },
+    "uk.gov.gchq.palisade.data.serialise.Serialiser.lambda$serialiseFlow$f3dfe089$1:(Ljava/io/InputStream;)Ljava/io/InputStream;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        116
+      ]
+    },
+    "uk.gov.gchq.palisade.data.serialise.Serialiser.serialise:(Ljava/util/stream/Stream;)Ljava/io/InputStream;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.data.serialise.Serialiser.serialiseFlow:()Lakka/stream/javadsl/Flow;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        111
+      ]
+    },
+    "uk.gov.gchq.palisade.data.serialise.Serialiser.tryCreate:(Ljava/lang/Class;Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        90,
+        91,
+        92,
+        93
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        42,
+        40,
+        43
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.attribute:(Ljava/lang/String;Ljava/lang/String;)Luk/gov/gchq/palisade/resource/AbstractLeafResource;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        84,
+        85
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.attributes:(Ljava/util/Map;)Luk/gov/gchq/palisade/resource/AbstractLeafResource;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        71,
+        72
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.connectionDetail:(Luk/gov/gchq/palisade/resource/ConnectionDetail;)Luk/gov/gchq/palisade/resource/AbstractLeafResource;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        59,
+        60
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 9,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 9
+      },
+      "lineNumbers" : [
+        177,
+        178,
+        180,
+        181,
+        183,
+        184,
+        186,
+        187,
+        188,
+        189,
+        190,
+        187
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.getAttribute:(Ljava/lang/String;)Ljava/lang/Object;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        146
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.getAttributes:()Ljava/util/Map;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        129
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.getConnectionDetail:()Luk/gov/gchq/palisade/resource/ConnectionDetail;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        117
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.getSerialisedFormat:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        104
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.getType:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        91
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.hashCode:()I" : {
+      "completeTestCount" : 9,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 9
+      },
+      "lineNumbers" : [
+        196
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.isAttributeSet:(Ljava/lang/String;)Ljava/lang/Boolean;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        157
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.serialisedFormat:(Ljava/lang/String;)Luk/gov/gchq/palisade/resource/AbstractLeafResource;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        53,
+        54
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.setAttribute:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        168,
+        169,
+        170,
+        172
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.setAttributes:(Ljava/util/Map;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        134,
+        135,
+        136
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.setConnectionDetail:(Luk/gov/gchq/palisade/resource/ConnectionDetail;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        123,
+        124,
+        125
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.setSerialisedFormat:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        110,
+        111,
+        112
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.setType:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        97,
+        98,
+        99
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R015",
+      "lineNumbers" : [
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        202
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractLeafResource.type:(Ljava/lang/String;)Luk/gov/gchq/palisade/resource/AbstractLeafResource;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        47,
+        48
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractResource.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "uk.gov.gchq.palisade.resource.AbstractResource.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        37,
+        38
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractResource.compareTo:(Ljava/lang/Object;)I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractResource.compareTo:(Luk/gov/gchq/palisade/resource/Resource;)I" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        89
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractResource.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 6
+      },
+      "lineNumbers" : [
+        62,
+        63,
+        65,
+        66,
+        68,
+        69
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractResource.getId:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        49
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractResource.hashCode:()I" : {
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 6
+      },
+      "lineNumbers" : [
+        75
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractResource.id:(Ljava/lang/String;)Luk/gov/gchq/palisade/resource/AbstractResource;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        42,
+        43
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractResource.setId:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        55,
+        56,
+        57
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.AbstractResource.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R015",
+      "lineNumbers" : [
+        81,
+        82,
+        83,
+        84,
+        81
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.ChildResource.getParent:()Luk/gov/gchq/palisade/resource/ParentResource;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.resource.ConnectionDetail.createConnection:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.resource.LeafResource.attributes:(Ljava/util/Map;)Luk/gov/gchq/palisade/resource/LeafResource;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.resource.LeafResource.connectionDetail:(Luk/gov/gchq/palisade/resource/ConnectionDetail;)Luk/gov/gchq/palisade/resource/LeafResource;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.resource.LeafResource.getAttributes:()Ljava/util/Map;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.resource.LeafResource.getConnectionDetail:()Luk/gov/gchq/palisade/resource/ConnectionDetail;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.resource.LeafResource.getSerialisedFormat:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.resource.LeafResource.getType:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.resource.LeafResource.serialisedFormat:(Ljava/lang/String;)Luk/gov/gchq/palisade/resource/LeafResource;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.resource.LeafResource.setAttributes:(Ljava/util/Map;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.resource.LeafResource.setConnectionDetail:(Luk/gov/gchq/palisade/resource/ConnectionDetail;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.resource.LeafResource.setSerialisedFormat:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.resource.LeafResource.setType:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.resource.LeafResource.type:(Ljava/lang/String;)Luk/gov/gchq/palisade/resource/LeafResource;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.resource.Resource.getId:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.resource.Resource.id:(Ljava/lang/String;)Luk/gov/gchq/palisade/resource/Resource;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.resource.Resource.setId:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.resource.impl.DirectoryResource.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        33,
+        35
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.DirectoryResource.getParent:()Luk/gov/gchq/palisade/resource/ParentResource;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.DirectoryResource.id:(Ljava/lang/String;)Luk/gov/gchq/palisade/resource/impl/DirectoryResource;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        44,
+        45,
+        47
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.FileResource.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        34,
+        36
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.FileResource.attribute:(Ljava/lang/String;Ljava/lang/String;)Luk/gov/gchq/palisade/resource/impl/FileResource;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        65
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.FileResource.attributes:(Ljava/util/Map;)Luk/gov/gchq/palisade/resource/impl/FileResource;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        60
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.FileResource.connectionDetail:(Luk/gov/gchq/palisade/resource/ConnectionDetail;)Luk/gov/gchq/palisade/resource/impl/FileResource;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.FileResource.getParent:()Luk/gov/gchq/palisade/resource/ParentResource;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        70
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.FileResource.id:(Ljava/lang/String;)Luk/gov/gchq/palisade/resource/impl/FileResource;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        40
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.FileResource.serialisedFormat:(Ljava/lang/String;)Luk/gov/gchq/palisade/resource/impl/FileResource;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        50
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.FileResource.type:(Ljava/lang/String;)Luk/gov/gchq/palisade/resource/impl/FileResource;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        45
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.SimpleConnectionDetail.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        35,
+        37
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.SimpleConnectionDetail.createConnection:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        65
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.SimpleConnectionDetail.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        71,
+        72,
+        74,
+        75,
+        77,
+        78
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.SimpleConnectionDetail.getServiceName:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        53
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.SimpleConnectionDetail.hashCode:()I" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        84
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.SimpleConnectionDetail.serviceName:(Ljava/lang/String;)Luk/gov/gchq/palisade/resource/impl/SimpleConnectionDetail;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        47,
+        48
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.SimpleConnectionDetail.setServiceName:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        58,
+        59,
+        60
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.SimpleConnectionDetail.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        90,
+        91,
+        92,
+        93,
+        90
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.SystemResource.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        29,
+        31
+      ]
+    },
+    "uk.gov.gchq.palisade.resource.impl.SystemResource.id:(Ljava/lang/String;)Luk/gov/gchq/palisade/resource/impl/SystemResource;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        35,
+        36,
+        38
+      ]
+    },
+    "uk.gov.gchq.palisade.rule.Rule.apply:(Ljava/io/Serializable;Luk/gov/gchq/palisade/user/User;Luk/gov/gchq/palisade/Context;)Ljava/io/Serializable;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.rule.Rule.isApplicable:(Luk/gov/gchq/palisade/user/User;Luk/gov/gchq/palisade/Context;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        65
+      ]
+    },
+    "uk.gov.gchq.palisade.rule.Rules.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        50,
+        51,
+        52,
+        53
+      ]
+    },
+    "uk.gov.gchq.palisade.rule.Rules.addRule:(Ljava/lang/String;Luk/gov/gchq/palisade/rule/Rule;)Luk/gov/gchq/palisade/rule/Rules;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        102,
+        103,
+        104,
+        105
+      ]
+    },
+    "uk.gov.gchq.palisade.rule.Rules.addRules:(Ljava/util/Map;)Luk/gov/gchq/palisade/rule/Rules;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        76,
+        77,
+        78
+      ]
+    },
+    "uk.gov.gchq.palisade.rule.Rules.containsRules:()Z" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        136
+      ]
+    },
+    "uk.gov.gchq.palisade.rule.Rules.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 8,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 8
+      },
+      "lineNumbers" : [
+        141,
+        142,
+        144,
+        145,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156
+      ]
+    },
+    "uk.gov.gchq.palisade.rule.Rules.getMessage:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        110
+      ]
+    },
+    "uk.gov.gchq.palisade.rule.Rules.getRules:()Ljava/util/Map;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        121
+      ]
+    },
+    "uk.gov.gchq.palisade.rule.Rules.hashCode:()I" : {
+      "completeTestCount" : 8,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 8
+      },
+      "lineNumbers" : [
+        162
+      ]
+    },
+    "uk.gov.gchq.palisade.rule.Rules.lambda$equals$0:(Ljava/util/Optional;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        150
+      ]
+    },
+    "uk.gov.gchq.palisade.rule.Rules.lambda$equals$1:(Ljava/util/Optional;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        154
+      ]
+    },
+    "uk.gov.gchq.palisade.rule.Rules.message:(Ljava/lang/String;)Luk/gov/gchq/palisade/rule/Rules;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        89,
+        90
+      ]
+    },
+    "uk.gov.gchq.palisade.rule.Rules.rules:(Ljava/util/Map;)Luk/gov/gchq/palisade/rule/Rules;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        63,
+        64
+      ]
+    },
+    "uk.gov.gchq.palisade.rule.Rules.setMessage:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        115,
+        116,
+        117
+      ]
+    },
+    "uk.gov.gchq.palisade.rule.Rules.setRules:(Ljava/util/Map;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        126,
+        127,
+        128
+      ]
+    },
+    "uk.gov.gchq.palisade.rule.Rules.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        168,
+        169,
+        170,
+        171,
+        168
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        56,
+        50,
+        51,
+        58
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.<init>:(Luk/gov/gchq/palisade/user/User;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        65,
+        50,
+        51,
+        66,
+        67,
+        68,
+        69,
+        70
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.addAuths:(Ljava/util/Set;)Luk/gov/gchq/palisade/user/User;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        128,
+        129,
+        130
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.addRoles:(Ljava/util/Set;)Luk/gov/gchq/palisade/user/User;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        153,
+        154,
+        155
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.auths:(Ljava/util/Set;)Luk/gov/gchq/palisade/user/User;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        116,
+        117
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.auths:([Ljava/lang/String;)Luk/gov/gchq/palisade/user/User;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        104,
+        105
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        206,
+        207,
+        209,
+        210,
+        212,
+        213,
+        214,
+        215,
+        213
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.getAuths:()Ljava/util/Set;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        194
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.getRoles:()Ljava/util/Set;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        183
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.getUserId:()Luk/gov/gchq/palisade/user/UserId;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        172
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.hashCode:()I" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        221
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.roles:(Ljava/util/Set;)Luk/gov/gchq/palisade/user/User;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        166,
+        167
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.roles:([Ljava/lang/String;)Luk/gov/gchq/palisade/user/User;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        141,
+        142
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.setAuths:(Ljava/util/Set;)V" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        199,
+        200,
+        201
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.setRoles:(Ljava/util/Set;)V" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        188,
+        189,
+        190
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.setUserId:(Luk/gov/gchq/palisade/user/UserId;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        177,
+        178,
+        179
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        227
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.userId:(Ljava/lang/String;)Luk/gov/gchq/palisade/user/User;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        92,
+        93
+      ]
+    },
+    "uk.gov.gchq.palisade.user.User.userId:(Luk/gov/gchq/palisade/user/UserId;)Luk/gov/gchq/palisade/user/User;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        80,
+        81
+      ]
+    },
+    "uk.gov.gchq.palisade.user.UserId.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        38,
+        40
+      ]
+    },
+    "uk.gov.gchq.palisade.user.UserId.<init>:(Luk/gov/gchq/palisade/user/UserId;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        47,
+        48,
+        49,
+        50
+      ]
+    },
+    "uk.gov.gchq.palisade.user.UserId.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        78,
+        79,
+        81,
+        82,
+        84,
+        85
+      ]
+    },
+    "uk.gov.gchq.palisade.user.UserId.getId:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        66
+      ]
+    },
+    "uk.gov.gchq.palisade.user.UserId.hashCode:()I" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        91
+      ]
+    },
+    "uk.gov.gchq.palisade.user.UserId.id:(Ljava/lang/String;)Luk/gov/gchq/palisade/user/UserId;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        60,
+        61
+      ]
+    },
+    "uk.gov.gchq.palisade.user.UserId.setId:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        71,
+        72,
+        73
+      ]
+    },
+    "uk.gov.gchq.palisade.user.UserId.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        97,
+        98,
+        99,
+        97
+      ]
+    },
+    "uk.gov.gchq.palisade.util.AbstractResourceBuilder.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "uk.gov.gchq.palisade.util.AbstractResourceBuilder.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "uk.gov.gchq.palisade.util.AbstractResourceBuilder.accepts:(Ljava/net/URI;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.util.AbstractResourceBuilder.build:(Ljava/net/URI;)Luk/gov/gchq/palisade/resource/Resource;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.util.AbstractResourceBuilder.buildNormal:(Ljava/net/URI;)Luk/gov/gchq/palisade/resource/Resource;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R015",
+      "lineNumbers" : [
+        89,
+        90,
+        93,
+        97,
+        94,
+        95,
+        96,
+        99,
+        100,
+        104,
+        105,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        123,
+        124,
+        125,
+        126
+      ]
+    },
+    "uk.gov.gchq.palisade.util.AbstractResourceBuilder.create:(Ljava/lang/String;)Luk/gov/gchq/palisade/resource/Resource;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        73,
+        74,
+        75
+      ]
+    },
+    "uk.gov.gchq.palisade.util.AbstractResourceBuilder.create:(Ljava/net/URI;)Luk/gov/gchq/palisade/resource/Resource;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R015",
+      "lineNumbers" : [
+        56,
+        57,
+        58,
+        59,
+        60,
+        61
+      ]
+    },
+    "uk.gov.gchq.palisade.util.AbstractResourceBuilder.lambda$create$0:(Ljava/net/URI;Luk/gov/gchq/palisade/util/AbstractResourceBuilder;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        58
+      ]
+    },
+    "uk.gov.gchq.palisade.util.AbstractResourceBuilder.lambda$create$1:(Ljava/net/URI;)Ljava/lang/IllegalArgumentException;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        60
+      ]
+    },
+    "uk.gov.gchq.palisade.util.AbstractResourceBuilder.refreshProviders:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        45,
+        46
+      ]
+    },
+    "uk.gov.gchq.palisade.util.FileResourceBuilder.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "uk.gov.gchq.palisade.util.FileResourceBuilder.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        53,
+        55
+      ]
+    },
+    "uk.gov.gchq.palisade.util.FileResourceBuilder.accepts:(Ljava/net/URI;)Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        109
+      ]
+    },
+    "uk.gov.gchq.palisade.util.FileResourceBuilder.build:(Ljava/net/URI;)Luk/gov/gchq/palisade/resource/Resource;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        104
+      ]
+    },
+    "uk.gov.gchq.palisade.util.FileResourceBuilder.directoryResource:(Ljava/net/URI;)Luk/gov/gchq/palisade/resource/impl/DirectoryResource;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        75,
+        76,
+        75
+      ]
+    },
+    "uk.gov.gchq.palisade.util.FileResourceBuilder.fileResource:(Ljava/net/URI;)Luk/gov/gchq/palisade/resource/impl/FileResource;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        70,
+        71,
+        70
+      ]
+    },
+    "uk.gov.gchq.palisade.util.FileResourceBuilder.filesystemScheme:(Ljava/net/URI;)Luk/gov/gchq/palisade/resource/Resource;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        87,
+        88,
+        90,
+        93,
+        94,
+        95,
+        96,
+        98
+      ]
+    },
+    "uk.gov.gchq.palisade.util.FileResourceBuilder.systemResource:(Ljava/net/URI;)Luk/gov/gchq/palisade/resource/impl/SystemResource;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        80,
+        81,
+        80
+      ]
+    },
+    "uk.gov.gchq.palisade.util.RulesUtil.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        35,
+        36
+      ]
+    },
+    "uk.gov.gchq.palisade.util.RulesUtil.applyRulesToItem:(Ljava/io/Serializable;Luk/gov/gchq/palisade/user/User;Luk/gov/gchq/palisade/Context;Luk/gov/gchq/palisade/rule/Rules;)Ljava/io/Serializable;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        79,
+        80,
+        82,
+        83,
+        84,
+        85,
+        86,
+        88,
+        89
+      ]
+    },
+    "uk.gov.gchq.palisade.util.RulesUtil.applyRulesToStream:(Ljava/util/stream/Stream;Luk/gov/gchq/palisade/user/User;Luk/gov/gchq/palisade/Context;Luk/gov/gchq/palisade/rule/Rules;Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;)Ljava/util/stream/Stream;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        51,
+        52,
+        53,
+        56,
+        57,
+        65,
+        56
+      ]
+    },
+    "uk.gov.gchq.palisade.util.RulesUtil.lambda$applyRulesToStream$0:(Ljava/util/concurrent/atomic/AtomicLong;Luk/gov/gchq/palisade/user/User;Luk/gov/gchq/palisade/Context;Luk/gov/gchq/palisade/rule/Rules;Ljava/util/concurrent/atomic/AtomicLong;Ljava/io/Serializable;)Ljava/io/Serializable;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        58,
+        59,
+        60,
+        61,
+        63
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder$IHost.withHost:(Ljava/lang/String;)Luk/gov/gchq/palisade/util/UriBuilder$AuthorityBuilder$IPort;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder$IHost.withoutHost:()Luk/gov/gchq/palisade/util/UriBuilder$AuthorityBuilder$IPort;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        106
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder$IPort.withPort:(Ljava/lang/Integer;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder$IPort.withoutPort:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        128
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder$IUserInfo.withUserInfo:(Ljava/lang/String;)Luk/gov/gchq/palisade/util/UriBuilder$AuthorityBuilder$IHost;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder$IUserInfo.withoutUserInfo:()Luk/gov/gchq/palisade/util/UriBuilder$AuthorityBuilder$IHost;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        84
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        33,
+        34
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder.build:()Luk/gov/gchq/palisade/util/UriBuilder$AuthorityBuilder$IUserInfo;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        58
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder.create:()Luk/gov/gchq/palisade/util/UriBuilder$AuthorityBuilder$IUserInfo;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        54
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder.create:(Ljava/net/URI;)Luk/gov/gchq/palisade/util/UriBuilder$AuthorityBuilder$IUserInfo;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        43,
+        44,
+        45
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder.lambda$build$0:()Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        60
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder.lambda$build$1:(Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        60
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder.lambda$build$2:()Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder.lambda$build$3:()Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        62
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder.lambda$build$4:(Ljava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        62
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder.lambda$build$5:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        58,
+        60,
+        61,
+        62,
+        58
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder.lambda$build$6:(Ljava/lang/String;Ljava/lang/String;)Luk/gov/gchq/palisade/util/UriBuilder$AuthorityBuilder$IPort;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        58
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder.lambda$build$7:(Ljava/lang/String;)Luk/gov/gchq/palisade/util/UriBuilder$AuthorityBuilder$IHost;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        58
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$IAuthority.withAuthority:(Ljava/lang/String;)Luk/gov/gchq/palisade/util/UriBuilder$IPath;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$IAuthority.withoutAuthority:()Luk/gov/gchq/palisade/util/UriBuilder$IPath;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        240
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$IFragment.withFragment:(Ljava/lang/String;)Ljava/net/URI;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$IFragment.withoutFragment:()Ljava/net/URI;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        306
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$IPath.withPath:(Ljava/lang/String;)Luk/gov/gchq/palisade/util/UriBuilder$IQuery;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$IPath.withoutPath:()Luk/gov/gchq/palisade/util/UriBuilder$IQuery;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        262
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$IQuery.withQuery:(Ljava/lang/String;)Luk/gov/gchq/palisade/util/UriBuilder$IFragment;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$IQuery.withoutQuery:()Luk/gov/gchq/palisade/util/UriBuilder$IFragment;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        284
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$IScheme.withScheme:(Ljava/lang/String;)Luk/gov/gchq/palisade/util/UriBuilder$IAuthority;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder$IScheme.withoutScheme:()Luk/gov/gchq/palisade/util/UriBuilder$IAuthority;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        218
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        28,
+        133
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder.build:()Luk/gov/gchq/palisade/util/UriBuilder$IScheme;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        163
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder.create:()Luk/gov/gchq/palisade/util/UriBuilder$IScheme;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        153
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder.create:(Ljava/net/URI;)Luk/gov/gchq/palisade/util/UriBuilder$IScheme;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        142,
+        143,
+        144
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder.lambda$build$0:()Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        165
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder.lambda$build$10:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Luk/gov/gchq/palisade/util/UriBuilder$IQuery;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        163
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder.lambda$build$11:(Ljava/lang/String;Ljava/lang/String;)Luk/gov/gchq/palisade/util/UriBuilder$IPath;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        163
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder.lambda$build$12:(Ljava/lang/String;)Luk/gov/gchq/palisade/util/UriBuilder$IAuthority;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        163
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder.lambda$build$1:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        169
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder.lambda$build$2:()Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        170
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder.lambda$build$3:()Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        174
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder.lambda$build$4:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        178
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder.lambda$build$5:()Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        179
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder.lambda$build$6:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        183
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder.lambda$build$7:()Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        184
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder.lambda$build$8:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        164,
+        165,
+        166,
+        168,
+        169,
+        170,
+        171,
+        173,
+        174,
+        175,
+        177,
+        178,
+        179,
+        180,
+        182,
+        183,
+        184,
+        185,
+        187,
+        194,
+        195
+      ]
+    },
+    "uk.gov.gchq.palisade.util.UriBuilder.lambda$build$9:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Luk/gov/gchq/palisade/util/UriBuilder$IFragment;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        163
+      ]
+    }
+  },
+  "validationMetrics" : { }
+}

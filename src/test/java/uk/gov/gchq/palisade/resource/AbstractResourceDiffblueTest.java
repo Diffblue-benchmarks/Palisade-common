@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -17,12 +18,13 @@ import uk.gov.gchq.palisade.resource.impl.FileResource;
 class AbstractResourceDiffblueTest {
   /**
    * Test {@link AbstractResource#id(String)}.
-   * <p>
-   * Method under test: {@link AbstractResource#id(String)}
+   *
+   * <p>Method under test: {@link AbstractResource#id(String)}
    */
   @Test
   @DisplayName("Test id(String)")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"AbstractResource AbstractResource.id(String)"})
   void testId() {
     // Arrange
@@ -40,28 +42,36 @@ class AbstractResourceDiffblueTest {
 
   /**
    * Test {@link AbstractResource#getId()}.
-   * <p>
-   * Method under test: {@link AbstractResource#getId()}
+   *
+   * <p>Method under test: {@link AbstractResource#getId()}
    */
   @Test
   @DisplayName("Test getId()")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"String AbstractResource.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
-    assertNull((new DirectoryResource()).getId());
+    assertNull(new DirectoryResource().getId());
   }
 
   /**
    * Test {@link AbstractResource#setId(String)}.
-   * <p>
-   * Method under test: {@link AbstractResource#setId(String)}
+   *
+   * <ul>
+   *   <li>When {@code 42}.
+   *   <li>Then {@link DirectoryResource} (default constructor) Id is {@code 42}.
+   * </ul>
+   *
+   * <p>Method under test: {@link AbstractResource#setId(String)}
    */
   @Test
-  @DisplayName("Test setId(String)")
-  @Tag("MaintainedByDiffblue")
+  @DisplayName(
+      "Test setId(String); when '42'; then DirectoryResource (default constructor) Id is '42'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"void AbstractResource.setId(String)"})
-  void testSetId() {
+  void testSetId_when42_thenDirectoryResourceIdIs42() {
     // Arrange
     DirectoryResource directoryResource = new DirectoryResource();
 
@@ -74,12 +84,14 @@ class AbstractResourceDiffblueTest {
 
   /**
    * Test {@link AbstractResource#equals(Object)}, and {@link AbstractResource#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AbstractResource#equals(Object)}
    *   <li>{@link AbstractResource#hashCode()}
@@ -87,29 +99,32 @@ class AbstractResourceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"boolean AbstractResource.equals(Object)", "int AbstractResource.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DirectoryResource directoryResource = new DirectoryResource();
     directoryResource.setId("42");
+
     FileResource fileResource = mock(FileResource.class);
     when(fileResource.getId()).thenReturn("42");
 
     // Act and Assert
     assertEquals(directoryResource, fileResource);
-    int notExpectedHashCodeResult = directoryResource.hashCode();
-    assertNotEquals(notExpectedHashCodeResult, fileResource.hashCode());
+    assertNotEquals(directoryResource.hashCode(), fileResource.hashCode());
   }
 
   /**
    * Test {@link AbstractResource#equals(Object)}, and {@link AbstractResource#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AbstractResource#equals(Object)}
    *   <li>{@link AbstractResource#hashCode()}
@@ -117,7 +132,8 @@ class AbstractResourceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"boolean AbstractResource.equals(Object)", "int AbstractResource.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
@@ -131,16 +147,18 @@ class AbstractResourceDiffblueTest {
 
   /**
    * Test {@link AbstractResource#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractResource#equals(Object)}
+   *
+   * <p>Method under test: {@link AbstractResource#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"boolean AbstractResource.equals(Object)", "int AbstractResource.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
@@ -149,16 +167,18 @@ class AbstractResourceDiffblueTest {
 
   /**
    * Test {@link AbstractResource#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractResource#equals(Object)}
+   *
+   * <p>Method under test: {@link AbstractResource#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"boolean AbstractResource.equals(Object)", "int AbstractResource.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
@@ -171,16 +191,18 @@ class AbstractResourceDiffblueTest {
 
   /**
    * Test {@link AbstractResource#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractResource#equals(Object)}
+   *
+   * <p>Method under test: {@link AbstractResource#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"boolean AbstractResource.equals(Object)", "int AbstractResource.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
@@ -189,16 +211,18 @@ class AbstractResourceDiffblueTest {
 
   /**
    * Test {@link AbstractResource#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractResource#equals(Object)}
+   *
+   * <p>Method under test: {@link AbstractResource#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"boolean AbstractResource.equals(Object)", "int AbstractResource.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
@@ -206,19 +230,22 @@ class AbstractResourceDiffblueTest {
   }
 
   /**
-   * Test {@link AbstractResource#compareTo(Resource)} with {@code o}.
+   * Test {@link AbstractResource#compareTo(Resource)} with {@code Resource}.
+   *
    * <ul>
-   *   <li>Given {@link DirectoryResource} (default constructor) Id is {@code 42}.</li>
-   *   <li>Then return zero.</li>
+   *   <li>Given {@link DirectoryResource} (default constructor) Id is {@code 42}.
+   *   <li>Then return zero.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractResource#compareTo(Resource)}
+   *
+   * <p>Method under test: {@link AbstractResource#compareTo(Resource)}
    */
   @Test
-  @DisplayName("Test compareTo(Resource) with 'o'; given DirectoryResource (default constructor) Id is '42'; then return zero")
-  @Tag("MaintainedByDiffblue")
+  @DisplayName(
+      "Test compareTo(Resource) with 'Resource'; given DirectoryResource (default constructor) Id is '42'; then return zero")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"int AbstractResource.compareTo(Resource)"})
-  void testCompareToWithO_givenDirectoryResourceIdIs42_thenReturnZero() {
+  void testCompareToWithResource_givenDirectoryResourceIdIs42_thenReturnZero() {
     // Arrange
     DirectoryResource directoryResource = new DirectoryResource();
     directoryResource.setId("42");

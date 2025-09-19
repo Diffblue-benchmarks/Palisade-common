@@ -2,6 +2,7 @@ package uk.gov.gchq.palisade.data.serialise;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Optional;
 import org.junit.jupiter.api.DisplayName;
@@ -11,15 +12,17 @@ import org.junit.jupiter.api.Test;
 class SerialiserDiffblueTest {
   /**
    * Test {@link Serialiser#create(Class, Class)}.
+   *
    * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link Serialiser#create(Class, Class)}
+   *
+   * <p>Method under test: {@link Serialiser#create(Class, Class)}
    */
   @Test
   @DisplayName("Test create(Class, Class); then throw IllegalArgumentException")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"Serialiser Serialiser.create(Class, Class)"})
   void testCreate_thenThrowIllegalArgumentException() {
     // Arrange
@@ -27,30 +30,33 @@ class SerialiserDiffblueTest {
     Class<Object> domainClass = Object.class;
 
     // Act and Assert
-    assertThrows(IllegalArgumentException.class,
+    assertThrows(
+        IllegalArgumentException.class,
         () -> Serialiser.create((Class<Serialiser<?>>) (Class) forNameResult, domainClass));
   }
 
   /**
    * Test {@link Serialiser#tryCreate(Class, String)}.
+   *
    * <ul>
-   *   <li>When {@code Domain Class Name}.</li>
-   *   <li>Then return not Present.</li>
+   *   <li>When {@code Domain Class Name}.
+   *   <li>Then return not Present.
    * </ul>
-   * <p>
-   * Method under test: {@link Serialiser#tryCreate(Class, String)}
+   *
+   * <p>Method under test: {@link Serialiser#tryCreate(Class, String)}
    */
   @Test
   @DisplayName("Test tryCreate(Class, String); when 'Domain Class Name'; then return not Present")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"Optional Serialiser.tryCreate(Class, String)"})
   void testTryCreate_whenDomainClassName_thenReturnNotPresent() {
     // Arrange
     Class<Serialiser> forNameResult = Serialiser.class;
 
     // Act
-    Optional<Serialiser<Object>> actualTryCreateResult = Serialiser
-        .tryCreate((Class<Serialiser<?>>) (Class) forNameResult, "Domain Class Name");
+    Optional<Serialiser<Object>> actualTryCreateResult =
+        Serialiser.tryCreate((Class<Serialiser<?>>) (Class) forNameResult, "Domain Class Name");
 
     // Assert
     assertFalse(actualTryCreateResult.isPresent());
@@ -58,24 +64,27 @@ class SerialiserDiffblueTest {
 
   /**
    * Test {@link Serialiser#tryCreate(Class, String)}.
+   *
    * <ul>
-   *   <li>When {@code Serialiser}.</li>
-   *   <li>Then return not Present.</li>
+   *   <li>When {@code Serialiser}.
+   *   <li>Then return not Present.
    * </ul>
-   * <p>
-   * Method under test: {@link Serialiser#tryCreate(Class, String)}
+   *
+   * <p>Method under test: {@link Serialiser#tryCreate(Class, String)}
    */
   @Test
-  @DisplayName("Test tryCreate(Class, String); when 'uk.gov.gchq.palisade.data.serialise.Serialiser'; then return not Present")
-  @Tag("MaintainedByDiffblue")
+  @DisplayName(
+      "Test tryCreate(Class, String); when 'uk.gov.gchq.palisade.data.serialise.Serialiser'; then return not Present")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"Optional Serialiser.tryCreate(Class, String)"})
   void testTryCreate_whenUkGovGchqPalisadeDataSerialiseSerialiser_thenReturnNotPresent() {
     // Arrange
     Class<Serialiser> forNameResult = Serialiser.class;
 
     // Act
-    Optional<Serialiser<Object>> actualTryCreateResult = Serialiser
-        .tryCreate((Class<Serialiser<?>>) (Class) forNameResult, "java.io.InputStream");
+    Optional<Serialiser<Object>> actualTryCreateResult =
+        Serialiser.tryCreate((Class<Serialiser<?>>) (Class) forNameResult, "java.io.InputStream");
 
     // Assert
     assertFalse(actualTryCreateResult.isPresent());

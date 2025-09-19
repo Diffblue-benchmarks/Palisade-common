@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,12 +17,13 @@ import org.junit.jupiter.api.Test;
 class ContextDiffblueTest {
   /**
    * Test {@link Context#Context()}.
-   * <p>
-   * Method under test: {@link Context#Context()}
+   *
+   * <p>Method under test: {@link Context#Context()}
    */
   @Test
   @DisplayName("Test new Context()")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"void Context.<init>()"})
   void testNewContext() {
     // Arrange and Act
@@ -35,12 +37,13 @@ class ContextDiffblueTest {
 
   /**
    * Test {@link Context#Context(Map)}.
-   * <p>
-   * Method under test: {@link Context#Context(Map)}
+   *
+   * <p>Method under test: {@link Context#Context(Map)}
    */
   @Test
   @DisplayName("Test new Context(Map)")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"void Context.<init>(Map)"})
   void testNewContext2() {
     // Arrange and Act
@@ -54,12 +57,13 @@ class ContextDiffblueTest {
 
   /**
    * Test {@link Context#contents(Map)}.
-   * <p>
-   * Method under test: {@link Context#contents(Map)}
+   *
+   * <p>Method under test: {@link Context#contents(Map)}
    */
   @Test
   @DisplayName("Test contents(Map)")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"Context Context.contents(Map)"})
   void testContents() {
     // Arrange
@@ -76,8 +80,9 @@ class ContextDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Context#setContents(Map)}
    *   <li>{@link Context#toString()}
@@ -86,8 +91,13 @@ class ContextDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Map Context.getContents()", "void Context.setContents(Map)", "String Context.toString()"})
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "Map Context.getContents()",
+    "void Context.setContents(Map)",
+    "String Context.toString()"
+  })
   void testGettersAndSetters() {
     // Arrange
     Context context = new Context();
@@ -106,26 +116,28 @@ class ContextDiffblueTest {
 
   /**
    * Test {@link Context#getContentsCopy()}.
-   * <p>
-   * Method under test: {@link Context#getContentsCopy()}
+   *
+   * <p>Method under test: {@link Context#getContentsCopy()}
    */
   @Test
   @DisplayName("Test getContentsCopy()")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"Map Context.getContentsCopy()"})
   void testGetContentsCopy() {
     // Arrange, Act and Assert
-    assertTrue((new Context()).getContentsCopy().isEmpty());
+    assertTrue(new Context().getContentsCopy().isEmpty());
   }
 
   /**
    * Test {@link Context#purpose(String)}.
-   * <p>
-   * Method under test: {@link Context#purpose(String)}
+   *
+   * <p>Method under test: {@link Context#purpose(String)}
    */
   @Test
   @DisplayName("Test purpose(String)")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"Context Context.purpose(String)"})
   void testPurpose() {
     // Arrange
@@ -144,16 +156,19 @@ class ContextDiffblueTest {
 
   /**
    * Test {@link Context#getPurpose()}.
+   *
    * <ul>
-   *   <li>Given {@link Context#Context()} {@code purpose} is forty-two.</li>
-   *   <li>Then throw {@link RuntimeException}.</li>
+   *   <li>Given {@link Context#Context()} {@code purpose} is forty-two.
+   *   <li>Then throw {@link RuntimeException}.
    * </ul>
-   * <p>
-   * Method under test: {@link Context#getPurpose()}
+   *
+   * <p>Method under test: {@link Context#getPurpose()}
    */
   @Test
-  @DisplayName("Test getPurpose(); given Context() 'purpose' is forty-two; then throw RuntimeException")
-  @Tag("MaintainedByDiffblue")
+  @DisplayName(
+      "Test getPurpose(); given Context() 'purpose' is forty-two; then throw RuntimeException")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"String Context.getPurpose()"})
   void testGetPurpose_givenContextPurposeIsFortyTwo_thenThrowRuntimeException() {
     // Arrange
@@ -166,44 +181,48 @@ class ContextDiffblueTest {
 
   /**
    * Test {@link Context#getPurpose()}.
+   *
    * <ul>
-   *   <li>Given {@link Context#Context()}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Given {@link Context#Context()}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link Context#getPurpose()}
+   *
+   * <p>Method under test: {@link Context#getPurpose()}
    */
   @Test
   @DisplayName("Test getPurpose(); given Context(); then return 'null'")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"String Context.getPurpose()"})
   void testGetPurpose_givenContext_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull((new Context()).getPurpose());
+    assertNull(new Context().getPurpose());
   }
 
   /**
    * Test {@link Context#get(String)}.
-   * <p>
-   * Method under test: {@link Context#get(String)}
+   *
+   * <p>Method under test: {@link Context#get(String)}
    */
   @Test
   @DisplayName("Test get(String)")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"Object Context.get(String)"})
   void testGet() {
     // Arrange, Act and Assert
-    assertNull((new Context()).get("Key"));
+    assertNull(new Context().get("Key"));
   }
 
   /**
    * Test {@link Context#put(String, Object)}.
-   * <p>
-   * Method under test: {@link Context#put(String, Object)}
+   *
+   * <p>Method under test: {@link Context#put(String, Object)}
    */
   @Test
   @DisplayName("Test put(String, Object)")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"Context Context.put(String, Object)"})
   void testPut() {
     // Arrange
@@ -221,12 +240,13 @@ class ContextDiffblueTest {
 
   /**
    * Test {@link Context#putIfAbsent(String, Object)}.
-   * <p>
-   * Method under test: {@link Context#putIfAbsent(String, Object)}
+   *
+   * <p>Method under test: {@link Context#putIfAbsent(String, Object)}
    */
   @Test
   @DisplayName("Test putIfAbsent(String, Object)")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"Context Context.putIfAbsent(String, Object)"})
   void testPutIfAbsent() {
     // Arrange
@@ -244,12 +264,14 @@ class ContextDiffblueTest {
 
   /**
    * Test {@link Context#equals(Object)}, and {@link Context#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Context#equals(Object)}
    *   <li>{@link Context#hashCode()}
@@ -257,7 +279,8 @@ class ContextDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"boolean Context.equals(Object)", "int Context.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
@@ -266,18 +289,19 @@ class ContextDiffblueTest {
 
     // Act and Assert
     assertEquals(context, context2);
-    int expectedHashCodeResult = context.hashCode();
-    assertEquals(expectedHashCodeResult, context2.hashCode());
+    assertEquals(context.hashCode(), context2.hashCode());
   }
 
   /**
    * Test {@link Context#equals(Object)}, and {@link Context#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link Context#equals(Object)}
    *   <li>{@link Context#hashCode()}
@@ -285,7 +309,8 @@ class ContextDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"boolean Context.equals(Object)", "int Context.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
@@ -299,16 +324,18 @@ class ContextDiffblueTest {
 
   /**
    * Test {@link Context#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Context#equals(Object)}
+   *
+   * <p>Method under test: {@link Context#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"boolean Context.equals(Object)", "int Context.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
@@ -321,16 +348,18 @@ class ContextDiffblueTest {
 
   /**
    * Test {@link Context#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Context#equals(Object)}
+   *
+   * <p>Method under test: {@link Context#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"boolean Context.equals(Object)", "int Context.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
@@ -339,16 +368,18 @@ class ContextDiffblueTest {
 
   /**
    * Test {@link Context#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link Context#equals(Object)}
+   *
+   * <p>Method under test: {@link Context#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"boolean Context.equals(Object)", "int Context.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert

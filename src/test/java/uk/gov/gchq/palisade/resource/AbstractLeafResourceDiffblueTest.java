@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,12 +19,13 @@ import uk.gov.gchq.palisade.resource.impl.FileResource;
 class AbstractLeafResourceDiffblueTest {
   /**
    * Test {@link AbstractLeafResource#type(String)}.
-   * <p>
-   * Method under test: {@link AbstractLeafResource#type(String)}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#type(String)}
    */
   @Test
   @DisplayName("Test type(String)")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"AbstractLeafResource AbstractLeafResource.type(String)"})
   void testType() {
     // Arrange
@@ -39,12 +41,13 @@ class AbstractLeafResourceDiffblueTest {
 
   /**
    * Test {@link AbstractLeafResource#serialisedFormat(String)}.
-   * <p>
-   * Method under test: {@link AbstractLeafResource#serialisedFormat(String)}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#serialisedFormat(String)}
    */
   @Test
   @DisplayName("Test serialisedFormat(String)")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"AbstractLeafResource AbstractLeafResource.serialisedFormat(String)"})
   void testSerialisedFormat() {
     // Arrange
@@ -60,85 +63,109 @@ class AbstractLeafResourceDiffblueTest {
 
   /**
    * Test {@link AbstractLeafResource#connectionDetail(ConnectionDetail)}.
+   *
    * <ul>
-   *   <li>Given {@link FileResource} (default constructor).</li>
-   *   <li>Then return {@link FileResource} (default constructor).</li>
+   *   <li>Given {@link FileResource} (default constructor).
+   *   <li>Then return {@link FileResource} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractLeafResource#connectionDetail(ConnectionDetail)}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#connectionDetail(ConnectionDetail)}
    */
   @Test
-  @DisplayName("Test connectionDetail(ConnectionDetail); given FileResource (default constructor); then return FileResource (default constructor)")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"AbstractLeafResource AbstractLeafResource.connectionDetail(ConnectionDetail)"})
+  @DisplayName(
+      "Test connectionDetail(ConnectionDetail); given FileResource (default constructor); then return FileResource (default constructor)")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "AbstractLeafResource AbstractLeafResource.connectionDetail(ConnectionDetail)"
+  })
   void testConnectionDetail_givenFileResource_thenReturnFileResource() {
     // Arrange
     FileResource fileResource = new FileResource();
     ConnectionDetail connectionDetail = mock(ConnectionDetail.class);
 
-    // Act and Assert
-    assertSame(fileResource, fileResource.connectionDetail(connectionDetail));
+    // Act
+    FileResource actualConnectionDetailResult = fileResource.connectionDetail(connectionDetail);
+
+    // Assert
+    assertSame(fileResource, actualConnectionDetailResult);
     assertSame(connectionDetail, fileResource.getConnectionDetail());
   }
 
   /**
    * Test {@link AbstractLeafResource#attributes(Map)}.
-   * <p>
-   * Method under test: {@link AbstractLeafResource#attributes(Map)}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#attributes(Map)}
    */
   @Test
   @DisplayName("Test attributes(Map)")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"AbstractLeafResource AbstractLeafResource.attributes(Map)"})
   void testAttributes() {
     // Arrange
     FileResource fileResource = new FileResource();
 
-    // Act and Assert
-    assertSame(fileResource, fileResource.attributes(new HashMap<>()));
+    // Act
+    FileResource actualAttributesResult = fileResource.attributes(new HashMap<>());
+
+    // Assert
+    assertSame(fileResource, actualAttributesResult);
   }
 
   /**
    * Test {@link AbstractLeafResource#attribute(String, String)}.
-   * <p>
-   * Method under test: {@link AbstractLeafResource#attribute(String, String)}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#attribute(String, String)}
    */
   @Test
   @DisplayName("Test attribute(String, String)")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"AbstractLeafResource AbstractLeafResource.attribute(String, String)"})
   void testAttribute() {
     // Arrange
     FileResource fileResource = new FileResource();
 
-    // Act and Assert
-    assertSame(fileResource, fileResource.attribute("Attribute Key", "42"));
+    // Act
+    FileResource actualAttributeResult = fileResource.attribute("Attribute Key", "42");
+
+    // Assert
+    assertSame(fileResource, actualAttributeResult);
   }
 
   /**
    * Test {@link AbstractLeafResource#getType()}.
-   * <p>
-   * Method under test: {@link AbstractLeafResource#getType()}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#getType()}
    */
   @Test
   @DisplayName("Test getType()")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"String AbstractLeafResource.getType()"})
   void testGetType() {
     // Arrange, Act and Assert
-    assertNull((new FileResource()).getType());
+    assertNull(new FileResource().getType());
   }
 
   /**
    * Test {@link AbstractLeafResource#setType(String)}.
-   * <p>
-   * Method under test: {@link AbstractLeafResource#setType(String)}
+   *
+   * <ul>
+   *   <li>When {@code Type}.
+   *   <li>Then {@link FileResource} (default constructor) Type is {@code Type}.
+   * </ul>
+   *
+   * <p>Method under test: {@link AbstractLeafResource#setType(String)}
    */
   @Test
-  @DisplayName("Test setType(String)")
-  @Tag("MaintainedByDiffblue")
+  @DisplayName(
+      "Test setType(String); when 'Type'; then FileResource (default constructor) Type is 'Type'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"void AbstractLeafResource.setType(String)"})
-  void testSetType() {
+  void testSetType_whenType_thenFileResourceTypeIsType() {
     // Arrange
     FileResource fileResource = new FileResource();
 
@@ -151,28 +178,36 @@ class AbstractLeafResourceDiffblueTest {
 
   /**
    * Test {@link AbstractLeafResource#getSerialisedFormat()}.
-   * <p>
-   * Method under test: {@link AbstractLeafResource#getSerialisedFormat()}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#getSerialisedFormat()}
    */
   @Test
   @DisplayName("Test getSerialisedFormat()")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"String AbstractLeafResource.getSerialisedFormat()"})
   void testGetSerialisedFormat() {
     // Arrange, Act and Assert
-    assertNull((new FileResource()).getSerialisedFormat());
+    assertNull(new FileResource().getSerialisedFormat());
   }
 
   /**
    * Test {@link AbstractLeafResource#setSerialisedFormat(String)}.
-   * <p>
-   * Method under test: {@link AbstractLeafResource#setSerialisedFormat(String)}
+   *
+   * <ul>
+   *   <li>Then {@link FileResource} (default constructor) SerialisedFormat is {@code Serialised
+   *       Format}.
+   * </ul>
+   *
+   * <p>Method under test: {@link AbstractLeafResource#setSerialisedFormat(String)}
    */
   @Test
-  @DisplayName("Test setSerialisedFormat(String)")
-  @Tag("MaintainedByDiffblue")
+  @DisplayName(
+      "Test setSerialisedFormat(String); then FileResource (default constructor) SerialisedFormat is 'Serialised Format'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"void AbstractLeafResource.setSerialisedFormat(String)"})
-  void testSetSerialisedFormat() {
+  void testSetSerialisedFormat_thenFileResourceSerialisedFormatIsSerialisedFormat() {
     // Arrange
     FileResource fileResource = new FileResource();
 
@@ -185,32 +220,38 @@ class AbstractLeafResourceDiffblueTest {
 
   /**
    * Test {@link AbstractLeafResource#getConnectionDetail()}.
+   *
    * <ul>
-   *   <li>Then return {@code null}.</li>
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractLeafResource#getConnectionDetail()}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#getConnectionDetail()}
    */
   @Test
   @DisplayName("Test getConnectionDetail(); then return 'null'")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"ConnectionDetail AbstractLeafResource.getConnectionDetail()"})
   void testGetConnectionDetail_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull((new FileResource()).getConnectionDetail());
+    assertNull(new FileResource().getConnectionDetail());
   }
 
   /**
    * Test {@link AbstractLeafResource#setConnectionDetail(ConnectionDetail)}.
+   *
    * <ul>
-   *   <li>Then {@link FileResource} (default constructor) ConnectionDetail is {@link ConnectionDetail}.</li>
+   *   <li>Then {@link FileResource} (default constructor) ConnectionDetail is {@link
+   *       ConnectionDetail}.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractLeafResource#setConnectionDetail(ConnectionDetail)}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#setConnectionDetail(ConnectionDetail)}
    */
   @Test
-  @DisplayName("Test setConnectionDetail(ConnectionDetail); then FileResource (default constructor) ConnectionDetail is ConnectionDetail")
-  @Tag("MaintainedByDiffblue")
+  @DisplayName(
+      "Test setConnectionDetail(ConnectionDetail); then FileResource (default constructor) ConnectionDetail is ConnectionDetail")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"void AbstractLeafResource.setConnectionDetail(ConnectionDetail)"})
   void testSetConnectionDetail_thenFileResourceConnectionDetailIsConnectionDetail() {
     // Arrange
@@ -226,54 +267,58 @@ class AbstractLeafResourceDiffblueTest {
 
   /**
    * Test {@link AbstractLeafResource#getAttributes()}.
-   * <p>
-   * Method under test: {@link AbstractLeafResource#getAttributes()}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#getAttributes()}
    */
   @Test
   @DisplayName("Test getAttributes()")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"Map AbstractLeafResource.getAttributes()"})
   void testGetAttributes() {
     // Arrange, Act and Assert
-    assertTrue((new FileResource()).getAttributes().isEmpty());
+    assertTrue(new FileResource().getAttributes().isEmpty());
   }
 
   /**
    * Test {@link AbstractLeafResource#getAttribute(String)}.
-   * <p>
-   * Method under test: {@link AbstractLeafResource#getAttribute(String)}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#getAttribute(String)}
    */
   @Test
   @DisplayName("Test getAttribute(String)")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"Object AbstractLeafResource.getAttribute(String)"})
   void testGetAttribute() {
     // Arrange, Act and Assert
-    assertNull((new FileResource()).getAttribute("Attribute Key"));
+    assertNull(new FileResource().getAttribute("Attribute Key"));
   }
 
   /**
    * Test {@link AbstractLeafResource#isAttributeSet(String)}.
-   * <p>
-   * Method under test: {@link AbstractLeafResource#isAttributeSet(String)}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#isAttributeSet(String)}
    */
   @Test
   @DisplayName("Test isAttributeSet(String)")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"java.lang.Boolean AbstractLeafResource.isAttributeSet(String)"})
   void testIsAttributeSet() {
     // Arrange, Act and Assert
-    assertFalse((new FileResource()).isAttributeSet("Attribute Key"));
+    assertFalse(new FileResource().isAttributeSet("Attribute Key"));
   }
 
   /**
    * Test {@link AbstractLeafResource#setAttribute(String, String)}.
-   * <p>
-   * Method under test: {@link AbstractLeafResource#setAttribute(String, String)}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#setAttribute(String, String)}
    */
   @Test
   @DisplayName("Test setAttribute(String, String)")
-  @Tag("MaintainedByDiffblue")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
   @MethodsUnderTest({"void AbstractLeafResource.setAttribute(String, String)"})
   void testSetAttribute() {
     // Arrange
@@ -290,12 +335,14 @@ class AbstractLeafResourceDiffblueTest {
 
   /**
    * Test {@link AbstractLeafResource#equals(Object)}, and {@link AbstractLeafResource#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AbstractLeafResource#equals(Object)}
    *   <li>{@link AbstractLeafResource#hashCode()}
@@ -303,8 +350,12 @@ class AbstractLeafResourceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AbstractLeafResource.equals(Object)", "int AbstractLeafResource.hashCode()"})
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean AbstractLeafResource.equals(Object)",
+    "int AbstractLeafResource.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     FileResource fileResource = new FileResource();
@@ -315,18 +366,19 @@ class AbstractLeafResourceDiffblueTest {
 
     // Act and Assert
     assertEquals(fileResource, fileResource2);
-    int expectedHashCodeResult = fileResource.hashCode();
-    assertEquals(expectedHashCodeResult, fileResource2.hashCode());
+    assertEquals(fileResource.hashCode(), fileResource2.hashCode());
   }
 
   /**
    * Test {@link AbstractLeafResource#equals(Object)}, and {@link AbstractLeafResource#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link AbstractLeafResource#equals(Object)}
    *   <li>{@link AbstractLeafResource#hashCode()}
@@ -334,8 +386,12 @@ class AbstractLeafResourceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AbstractLeafResource.equals(Object)", "int AbstractLeafResource.hashCode()"})
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean AbstractLeafResource.equals(Object)",
+    "int AbstractLeafResource.hashCode()"
+  })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     FileResource fileResource = new FileResource();
@@ -348,17 +404,22 @@ class AbstractLeafResourceDiffblueTest {
 
   /**
    * Test {@link AbstractLeafResource#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractLeafResource#equals(Object)}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AbstractLeafResource.equals(Object)", "int AbstractLeafResource.hashCode()"})
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean AbstractLeafResource.equals(Object)",
+    "int AbstractLeafResource.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new FileResource(), 1);
@@ -366,17 +427,22 @@ class AbstractLeafResourceDiffblueTest {
 
   /**
    * Test {@link AbstractLeafResource#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractLeafResource#equals(Object)}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AbstractLeafResource.equals(Object)", "int AbstractLeafResource.hashCode()"})
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean AbstractLeafResource.equals(Object)",
+    "int AbstractLeafResource.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     FileResource fileResource = new FileResource();
@@ -388,17 +454,22 @@ class AbstractLeafResourceDiffblueTest {
 
   /**
    * Test {@link AbstractLeafResource#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractLeafResource#equals(Object)}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AbstractLeafResource.equals(Object)", "int AbstractLeafResource.hashCode()"})
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean AbstractLeafResource.equals(Object)",
+    "int AbstractLeafResource.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     FileResource fileResource = new FileResource();
@@ -414,17 +485,22 @@ class AbstractLeafResourceDiffblueTest {
 
   /**
    * Test {@link AbstractLeafResource#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractLeafResource#equals(Object)}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AbstractLeafResource.equals(Object)", "int AbstractLeafResource.hashCode()"})
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean AbstractLeafResource.equals(Object)",
+    "int AbstractLeafResource.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     FileResource fileResource = new FileResource();
@@ -440,17 +516,22 @@ class AbstractLeafResourceDiffblueTest {
 
   /**
    * Test {@link AbstractLeafResource#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractLeafResource#equals(Object)}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AbstractLeafResource.equals(Object)", "int AbstractLeafResource.hashCode()"})
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean AbstractLeafResource.equals(Object)",
+    "int AbstractLeafResource.hashCode()"
+  })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     FileResource fileResource = new FileResource();
@@ -466,17 +547,22 @@ class AbstractLeafResourceDiffblueTest {
 
   /**
    * Test {@link AbstractLeafResource#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractLeafResource#equals(Object)}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AbstractLeafResource.equals(Object)", "int AbstractLeafResource.hashCode()"})
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean AbstractLeafResource.equals(Object)",
+    "int AbstractLeafResource.hashCode()"
+  })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new FileResource(), null);
@@ -484,17 +570,22 @@ class AbstractLeafResourceDiffblueTest {
 
   /**
    * Test {@link AbstractLeafResource#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link AbstractLeafResource#equals(Object)}
+   *
+   * <p>Method under test: {@link AbstractLeafResource#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean AbstractLeafResource.equals(Object)", "int AbstractLeafResource.hashCode()"})
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean AbstractLeafResource.equals(Object)",
+    "int AbstractLeafResource.hashCode()"
+  })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new FileResource(), "Different type to AbstractLeafResource");
