@@ -10,6 +10,7 @@ List of third-party dependencies grouped by their license type
 
 ### [MIT](./licenses/not recognised):
 * mockito-core ([org.mockito:mockito-core:5.20.0](https://github.com/mockito/mockito))
+* mockito-junit-jupiter ([org.mockito:mockito-junit-jupiter:5.20.0](https://github.com/mockito/mockito))
 
 ### [MIT License](./licenses/mit_license.html):
 * SLF4J API Module ([org.slf4j:slf4j-api:1.7.25](http://www.slf4j.org))

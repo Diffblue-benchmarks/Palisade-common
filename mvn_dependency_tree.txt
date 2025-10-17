@@ -18,6 +18,7 @@ uk.gov.gchq.palisade:common:jar:0.5.2-SNAPSHOT
 |  +- net.bytebuddy:byte-buddy:jar:1.17.7:test
 |  +- net.bytebuddy:byte-buddy-agent:jar:1.17.7:test
 |  \- org.objenesis:objenesis:jar:3.3:test
++- org.mockito:mockito-junit-jupiter:jar:5.20.0:test
 +- com.fasterxml.jackson.core:jackson-databind:jar:2.11.0:compile
 |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.11.0:compile
 |  \- com.fasterxml.jackson.core:jackson-core:jar:2.11.0:compile
