@@ -2,9 +2,7 @@ package uk.gov.gchq.palisade.resource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
@@ -13,7 +11,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import uk.gov.gchq.palisade.resource.impl.DirectoryResource;
+import uk.gov.gchq.palisade.resource.impl.DirectoryResourceFactory;
 import uk.gov.gchq.palisade.resource.impl.FileResource;
+import uk.gov.gchq.palisade.resource.impl.FileResourceFactory;
 
 class AbstractResourceDiffblueTest {
   /**
@@ -28,16 +28,14 @@ class AbstractResourceDiffblueTest {
   @MethodsUnderTest({"AbstractResource AbstractResource.id(String)"})
   void testId() {
     // Arrange
-    DirectoryResource directoryResource = new DirectoryResource();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    DirectoryResource actualIdResult = directoryResource.id("42");
+    FileResource actualIdResult = createFileResourceResult.id("42");
 
     // Assert
-    assertTrue(actualIdResult instanceof DirectoryResource);
-    assertEquals("42/", directoryResource.getId());
-    assertEquals("42/", actualIdResult.getId());
-    assertSame(directoryResource, actualIdResult);
+    assertEquals("42", createFileResourceResult.getId());
+    assertSame(createFileResourceResult, actualIdResult);
   }
 
   /**
@@ -52,7 +50,8 @@ class AbstractResourceDiffblueTest {
   @MethodsUnderTest({"String AbstractResource.getId()"})
   void testGetId() {
     // Arrange, Act and Assert
-    assertNull(new DirectoryResource().getId());
+    assertEquals(
+        "file:///test/directory/", DirectoryResourceFactory.createDirectoryResource().getId());
   }
 
   /**
@@ -60,26 +59,26 @@ class AbstractResourceDiffblueTest {
    *
    * <ul>
    *   <li>When {@code 42}.
-   *   <li>Then {@link DirectoryResource} (default constructor) Id is {@code 42}.
+   *   <li>Then createDirectoryResource Id is {@code 42}.
    * </ul>
    *
    * <p>Method under test: {@link AbstractResource#setId(String)}
    */
   @Test
-  @DisplayName(
-      "Test setId(String); when '42'; then DirectoryResource (default constructor) Id is '42'")
+  @DisplayName("Test setId(String); when '42'; then createDirectoryResource Id is '42'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void AbstractResource.setId(String)"})
-  void testSetId_when42_thenDirectoryResourceIdIs42() {
+  void testSetId_when42_thenCreateDirectoryResourceIdIs42() {
     // Arrange
-    DirectoryResource directoryResource = new DirectoryResource();
+    DirectoryResource createDirectoryResourceResult =
+        DirectoryResourceFactory.createDirectoryResource();
 
     // Act
-    directoryResource.setId("42");
+    createDirectoryResourceResult.setId("42");
 
     // Assert
-    assertEquals("42", directoryResource.getId());
+    assertEquals("42", createDirectoryResourceResult.getId());
   }
 
   /**
@@ -90,12 +89,7 @@ class AbstractResourceDiffblueTest {
    *   <li>Then return equal.
    * </ul>
    *
-   * <p>Methods under test:
-   *
-   * <ul>
-   *   <li>{@link AbstractResource#equals(Object)}
-   *   <li>{@link AbstractResource#hashCode()}
-   * </ul>
+   * <p>Method under test: {@link AbstractResource#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
@@ -104,15 +98,12 @@ class AbstractResourceDiffblueTest {
   @MethodsUnderTest({"boolean AbstractResource.equals(Object)", "int AbstractResource.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    DirectoryResource directoryResource = new DirectoryResource();
-    directoryResource.setId("42");
-
-    FileResource fileResource = mock(FileResource.class);
-    when(fileResource.getId()).thenReturn("42");
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
+    FileResource createFileResourceResult2 = FileResourceFactory.createFileResource();
 
     // Act and Assert
-    assertEquals(directoryResource, fileResource);
-    assertNotEquals(directoryResource.hashCode(), fileResource.hashCode());
+    assertEquals(createFileResourceResult, createFileResourceResult2);
+    assertEquals(createFileResourceResult.hashCode(), createFileResourceResult2.hashCode());
   }
 
   /**
@@ -123,12 +114,7 @@ class AbstractResourceDiffblueTest {
    *   <li>Then return equal.
    * </ul>
    *
-   * <p>Methods under test:
-   *
-   * <ul>
-   *   <li>{@link AbstractResource#equals(Object)}
-   *   <li>{@link AbstractResource#hashCode()}
-   * </ul>
+   * <p>Method under test: {@link AbstractResource#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
@@ -137,12 +123,12 @@ class AbstractResourceDiffblueTest {
   @MethodsUnderTest({"boolean AbstractResource.equals(Object)", "int AbstractResource.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    DirectoryResource directoryResource = new DirectoryResource();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act and Assert
-    assertEquals(directoryResource, directoryResource);
-    int expectedHashCodeResult = directoryResource.hashCode();
-    assertEquals(expectedHashCodeResult, directoryResource.hashCode());
+    assertEquals(createFileResourceResult, createFileResourceResult);
+    int expectedHashCodeResult = createFileResourceResult.hashCode();
+    assertEquals(expectedHashCodeResult, createFileResourceResult.hashCode());
   }
 
   /**
@@ -161,8 +147,11 @@ class AbstractResourceDiffblueTest {
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean AbstractResource.equals(Object)", "int AbstractResource.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
-    // Arrange, Act and Assert
-    assertNotEquals(new DirectoryResource(), 1);
+    // Arrange
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
+
+    // Act and Assert
+    assertNotEquals(createFileResourceResult, DirectoryResourceFactory.createDirectoryResource());
   }
 
   /**
@@ -182,11 +171,13 @@ class AbstractResourceDiffblueTest {
   @MethodsUnderTest({"boolean AbstractResource.equals(Object)", "int AbstractResource.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    DirectoryResource directoryResource = new DirectoryResource();
-    directoryResource.setId("42");
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
+
+    FileResource fileResource = mock(FileResource.class);
+    when(fileResource.getId()).thenReturn("42");
 
     // Act and Assert
-    assertNotEquals(directoryResource, new DirectoryResource());
+    assertNotEquals(createFileResourceResult, fileResource);
   }
 
   /**
@@ -206,7 +197,7 @@ class AbstractResourceDiffblueTest {
   @MethodsUnderTest({"boolean AbstractResource.equals(Object)", "int AbstractResource.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new DirectoryResource(), null);
+    assertNotEquals(FileResourceFactory.createFileResource(), null);
   }
 
   /**
@@ -226,34 +217,32 @@ class AbstractResourceDiffblueTest {
   @MethodsUnderTest({"boolean AbstractResource.equals(Object)", "int AbstractResource.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new DirectoryResource(), "Different type to AbstractResource");
+    assertNotEquals(FileResourceFactory.createFileResource(), "Different type to AbstractResource");
   }
 
   /**
    * Test {@link AbstractResource#compareTo(Resource)} with {@code Resource}.
    *
    * <ul>
-   *   <li>Given {@link DirectoryResource} (default constructor) Id is {@code 42}.
-   *   <li>Then return zero.
+   *   <li>Given createDirectoryResource.
+   *   <li>Then return minus twelve.
    * </ul>
    *
    * <p>Method under test: {@link AbstractResource#compareTo(Resource)}
    */
   @Test
   @DisplayName(
-      "Test compareTo(Resource) with 'Resource'; given DirectoryResource (default constructor) Id is '42'; then return zero")
+      "Test compareTo(Resource) with 'Resource'; given createDirectoryResource; then return minus twelve")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"int AbstractResource.compareTo(Resource)"})
-  void testCompareToWithResource_givenDirectoryResourceIdIs42_thenReturnZero() {
+  void testCompareToWithResource_givenCreateDirectoryResource_thenReturnMinusTwelve() {
     // Arrange
-    DirectoryResource directoryResource = new DirectoryResource();
-    directoryResource.setId("42");
-
-    DirectoryResource o = new DirectoryResource();
-    o.setId("42");
+    DirectoryResource createDirectoryResourceResult =
+        DirectoryResourceFactory.createDirectoryResource();
 
     // Act and Assert
-    assertEquals(0, directoryResource.compareTo(o));
+    assertEquals(
+        -12, createDirectoryResourceResult.compareTo(FileResourceFactory.createFileResource()));
   }
 }

@@ -13,6 +13,8 @@ import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import uk.gov.gchq.palisade.resource.impl.FileResource;
+import uk.gov.gchq.palisade.resource.impl.FileResourceFactory;
 
 class ContextDiffblueTest {
   /**
@@ -158,7 +160,7 @@ class ContextDiffblueTest {
    * Test {@link Context#getPurpose()}.
    *
    * <ul>
-   *   <li>Given {@link Context#Context()} {@code purpose} is forty-two.
+   *   <li>Given {@link Context#Context()} {@code purpose} is createFileResource.
    *   <li>Then throw {@link RuntimeException}.
    * </ul>
    *
@@ -166,14 +168,14 @@ class ContextDiffblueTest {
    */
   @Test
   @DisplayName(
-      "Test getPurpose(); given Context() 'purpose' is forty-two; then throw RuntimeException")
+      "Test getPurpose(); given Context() 'purpose' is createFileResource; then throw RuntimeException")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String Context.getPurpose()"})
-  void testGetPurpose_givenContextPurposeIsFortyTwo_thenThrowRuntimeException() {
+  void testGetPurpose_givenContextPurposeIsCreateFileResource_thenThrowRuntimeException() {
     // Arrange
     Context context = new Context();
-    context.put("purpose", 42);
+    context.put("purpose", FileResourceFactory.createFileResource());
 
     // Act and Assert
     assertThrows(RuntimeException.class, () -> context.getPurpose());
@@ -227,15 +229,16 @@ class ContextDiffblueTest {
   void testPut() {
     // Arrange
     Context context = new Context();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    Context actualPutResult = context.put("Key", "Value");
+    Context actualPutResult = context.put("Key", createFileResourceResult);
 
     // Assert
     Map<String, Object> contentsCopy = context.getContentsCopy();
     assertEquals(1, contentsCopy.size());
-    assertEquals("Value", contentsCopy.get("Key"));
     assertSame(context, actualPutResult);
+    assertSame(createFileResourceResult, contentsCopy.get("Key"));
   }
 
   /**
@@ -251,15 +254,16 @@ class ContextDiffblueTest {
   void testPutIfAbsent() {
     // Arrange
     Context context = new Context();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    Context actualPutIfAbsentResult = context.putIfAbsent("Key", "Value");
+    Context actualPutIfAbsentResult = context.putIfAbsent("Key", createFileResourceResult);
 
     // Assert
     Map<String, Object> contentsCopy = context.getContentsCopy();
     assertEquals(1, contentsCopy.size());
-    assertEquals("Value", contentsCopy.get("Key"));
     assertSame(context, actualPutIfAbsentResult);
+    assertSame(createFileResourceResult, contentsCopy.get("Key"));
   }
 
   /**
@@ -340,7 +344,7 @@ class ContextDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     Context context = new Context();
-    context.put("Key", "Value");
+    context.put("Key", FileResourceFactory.createFileResource());
 
     // Act and Assert
     assertNotEquals(context, new Context());

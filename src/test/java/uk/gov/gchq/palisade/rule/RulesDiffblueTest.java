@@ -10,6 +10,7 @@ import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -27,6 +28,7 @@ class RulesDiffblueTest {
    *   <li>{@link Rules#toString()}
    *   <li>{@link Rules#getMessage()}
    *   <li>{@link Rules#getRules()}
+   *   <li>{@link Rules#getRulesMap()}
    * </ul>
    */
   @Test
@@ -37,6 +39,7 @@ class RulesDiffblueTest {
     "void Rules.<init>()",
     "String Rules.getMessage()",
     "Map Rules.getRules()",
+    "LinkedHashMap Rules.getRulesMap()",
     "void Rules.setMessage(String)",
     "String Rules.toString()"
   })
@@ -46,12 +49,15 @@ class RulesDiffblueTest {
     actualRules.setMessage("Not all who wander are lost");
     String actualToStringResult = actualRules.toString();
     String actualMessage = actualRules.getMessage();
+    Map<String, Rule<Serializable>> actualRules2 = actualRules.getRules();
+    LinkedHashMap<String, Rule<Serializable>> actualRulesMap = actualRules.getRulesMap();
 
     // Assert
     assertEquals("Not all who wander are lost", actualMessage);
     assertEquals(
         "Rules[message='Not all who wander are lost', rulesHashMap={}]", actualToStringResult);
-    assertTrue(actualRules.getRules().isEmpty());
+    assertTrue(actualRules2.isEmpty());
+    assertSame(actualRules2, actualRulesMap);
   }
 
   /**

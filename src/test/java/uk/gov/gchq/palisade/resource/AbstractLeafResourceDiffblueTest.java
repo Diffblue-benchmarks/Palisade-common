@@ -14,7 +14,9 @@ import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import uk.gov.gchq.palisade.resource.impl.DirectoryResourceFactory;
 import uk.gov.gchq.palisade.resource.impl.FileResource;
+import uk.gov.gchq.palisade.resource.impl.FileResourceFactory;
 
 class AbstractLeafResourceDiffblueTest {
   /**
@@ -29,14 +31,14 @@ class AbstractLeafResourceDiffblueTest {
   @MethodsUnderTest({"AbstractLeafResource AbstractLeafResource.type(String)"})
   void testType() {
     // Arrange
-    FileResource fileResource = new FileResource();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    FileResource actualTypeResult = fileResource.type("Type");
+    FileResource actualTypeResult = createFileResourceResult.type("Type");
 
     // Assert
-    assertEquals("Type", fileResource.getType());
-    assertSame(fileResource, actualTypeResult);
+    assertEquals("Type", createFileResourceResult.getType());
+    assertSame(createFileResourceResult, actualTypeResult);
   }
 
   /**
@@ -51,45 +53,47 @@ class AbstractLeafResourceDiffblueTest {
   @MethodsUnderTest({"AbstractLeafResource AbstractLeafResource.serialisedFormat(String)"})
   void testSerialisedFormat() {
     // Arrange
-    FileResource fileResource = new FileResource();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    FileResource actualSerialisedFormatResult = fileResource.serialisedFormat("Serialised Format");
+    FileResource actualSerialisedFormatResult =
+        createFileResourceResult.serialisedFormat("Serialised Format");
 
     // Assert
-    assertEquals("Serialised Format", fileResource.getSerialisedFormat());
-    assertSame(fileResource, actualSerialisedFormatResult);
+    assertEquals("Serialised Format", createFileResourceResult.getSerialisedFormat());
+    assertSame(createFileResourceResult, actualSerialisedFormatResult);
   }
 
   /**
    * Test {@link AbstractLeafResource#connectionDetail(ConnectionDetail)}.
    *
    * <ul>
-   *   <li>Given {@link FileResource} (default constructor).
-   *   <li>Then return {@link FileResource} (default constructor).
+   *   <li>Given createFileResource.
+   *   <li>Then return createFileResource.
    * </ul>
    *
    * <p>Method under test: {@link AbstractLeafResource#connectionDetail(ConnectionDetail)}
    */
   @Test
   @DisplayName(
-      "Test connectionDetail(ConnectionDetail); given FileResource (default constructor); then return FileResource (default constructor)")
+      "Test connectionDetail(ConnectionDetail); given createFileResource; then return createFileResource")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "AbstractLeafResource AbstractLeafResource.connectionDetail(ConnectionDetail)"
   })
-  void testConnectionDetail_givenFileResource_thenReturnFileResource() {
+  void testConnectionDetail_givenCreateFileResource_thenReturnCreateFileResource() {
     // Arrange
-    FileResource fileResource = new FileResource();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
     ConnectionDetail connectionDetail = mock(ConnectionDetail.class);
 
     // Act
-    FileResource actualConnectionDetailResult = fileResource.connectionDetail(connectionDetail);
+    FileResource actualConnectionDetailResult =
+        createFileResourceResult.connectionDetail(connectionDetail);
 
     // Assert
-    assertSame(fileResource, actualConnectionDetailResult);
-    assertSame(connectionDetail, fileResource.getConnectionDetail());
+    assertSame(createFileResourceResult, actualConnectionDetailResult);
+    assertSame(connectionDetail, createFileResourceResult.getConnectionDetail());
   }
 
   /**
@@ -104,13 +108,13 @@ class AbstractLeafResourceDiffblueTest {
   @MethodsUnderTest({"AbstractLeafResource AbstractLeafResource.attributes(Map)"})
   void testAttributes() {
     // Arrange
-    FileResource fileResource = new FileResource();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    FileResource actualAttributesResult = fileResource.attributes(new HashMap<>());
+    FileResource actualAttributesResult = createFileResourceResult.attributes(new HashMap<>());
 
     // Assert
-    assertSame(fileResource, actualAttributesResult);
+    assertSame(createFileResourceResult, actualAttributesResult);
   }
 
   /**
@@ -125,13 +129,13 @@ class AbstractLeafResourceDiffblueTest {
   @MethodsUnderTest({"AbstractLeafResource AbstractLeafResource.attribute(String, String)"})
   void testAttribute() {
     // Arrange
-    FileResource fileResource = new FileResource();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    FileResource actualAttributeResult = fileResource.attribute("Attribute Key", "42");
+    FileResource actualAttributeResult = createFileResourceResult.attribute("Attribute Key", "42");
 
     // Assert
-    assertSame(fileResource, actualAttributeResult);
+    assertSame(createFileResourceResult, actualAttributeResult);
   }
 
   /**
@@ -146,7 +150,7 @@ class AbstractLeafResourceDiffblueTest {
   @MethodsUnderTest({"String AbstractLeafResource.getType()"})
   void testGetType() {
     // Arrange, Act and Assert
-    assertNull(new FileResource().getType());
+    assertNull(FileResourceFactory.createFileResource().getType());
   }
 
   /**
@@ -154,26 +158,25 @@ class AbstractLeafResourceDiffblueTest {
    *
    * <ul>
    *   <li>When {@code Type}.
-   *   <li>Then {@link FileResource} (default constructor) Type is {@code Type}.
+   *   <li>Then createFileResource Type is {@code Type}.
    * </ul>
    *
    * <p>Method under test: {@link AbstractLeafResource#setType(String)}
    */
   @Test
-  @DisplayName(
-      "Test setType(String); when 'Type'; then FileResource (default constructor) Type is 'Type'")
+  @DisplayName("Test setType(String); when 'Type'; then createFileResource Type is 'Type'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void AbstractLeafResource.setType(String)"})
-  void testSetType_whenType_thenFileResourceTypeIsType() {
+  void testSetType_whenType_thenCreateFileResourceTypeIsType() {
     // Arrange
-    FileResource fileResource = new FileResource();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    fileResource.setType("Type");
+    createFileResourceResult.setType("Type");
 
     // Assert
-    assertEquals("Type", fileResource.getType());
+    assertEquals("Type", createFileResourceResult.getType());
   }
 
   /**
@@ -188,34 +191,33 @@ class AbstractLeafResourceDiffblueTest {
   @MethodsUnderTest({"String AbstractLeafResource.getSerialisedFormat()"})
   void testGetSerialisedFormat() {
     // Arrange, Act and Assert
-    assertNull(new FileResource().getSerialisedFormat());
+    assertNull(FileResourceFactory.createFileResource().getSerialisedFormat());
   }
 
   /**
    * Test {@link AbstractLeafResource#setSerialisedFormat(String)}.
    *
    * <ul>
-   *   <li>Then {@link FileResource} (default constructor) SerialisedFormat is {@code Serialised
-   *       Format}.
+   *   <li>Then createFileResource SerialisedFormat is {@code Serialised Format}.
    * </ul>
    *
    * <p>Method under test: {@link AbstractLeafResource#setSerialisedFormat(String)}
    */
   @Test
   @DisplayName(
-      "Test setSerialisedFormat(String); then FileResource (default constructor) SerialisedFormat is 'Serialised Format'")
+      "Test setSerialisedFormat(String); then createFileResource SerialisedFormat is 'Serialised Format'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void AbstractLeafResource.setSerialisedFormat(String)"})
-  void testSetSerialisedFormat_thenFileResourceSerialisedFormatIsSerialisedFormat() {
+  void testSetSerialisedFormat_thenCreateFileResourceSerialisedFormatIsSerialisedFormat() {
     // Arrange
-    FileResource fileResource = new FileResource();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    fileResource.setSerialisedFormat("Serialised Format");
+    createFileResourceResult.setSerialisedFormat("Serialised Format");
 
     // Assert
-    assertEquals("Serialised Format", fileResource.getSerialisedFormat());
+    assertEquals("Serialised Format", createFileResourceResult.getSerialisedFormat());
   }
 
   /**
@@ -234,35 +236,34 @@ class AbstractLeafResourceDiffblueTest {
   @MethodsUnderTest({"ConnectionDetail AbstractLeafResource.getConnectionDetail()"})
   void testGetConnectionDetail_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull(new FileResource().getConnectionDetail());
+    assertNull(FileResourceFactory.createFileResource().getConnectionDetail());
   }
 
   /**
    * Test {@link AbstractLeafResource#setConnectionDetail(ConnectionDetail)}.
    *
    * <ul>
-   *   <li>Then {@link FileResource} (default constructor) ConnectionDetail is {@link
-   *       ConnectionDetail}.
+   *   <li>Then createFileResource ConnectionDetail is {@link ConnectionDetail}.
    * </ul>
    *
    * <p>Method under test: {@link AbstractLeafResource#setConnectionDetail(ConnectionDetail)}
    */
   @Test
   @DisplayName(
-      "Test setConnectionDetail(ConnectionDetail); then FileResource (default constructor) ConnectionDetail is ConnectionDetail")
+      "Test setConnectionDetail(ConnectionDetail); then createFileResource ConnectionDetail is ConnectionDetail")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void AbstractLeafResource.setConnectionDetail(ConnectionDetail)"})
-  void testSetConnectionDetail_thenFileResourceConnectionDetailIsConnectionDetail() {
+  void testSetConnectionDetail_thenCreateFileResourceConnectionDetailIsConnectionDetail() {
     // Arrange
-    FileResource fileResource = new FileResource();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
     ConnectionDetail connectionDetail = mock(ConnectionDetail.class);
 
     // Act
-    fileResource.setConnectionDetail(connectionDetail);
+    createFileResourceResult.setConnectionDetail(connectionDetail);
 
     // Assert
-    assertSame(connectionDetail, fileResource.getConnectionDetail());
+    assertSame(connectionDetail, createFileResourceResult.getConnectionDetail());
   }
 
   /**
@@ -277,7 +278,7 @@ class AbstractLeafResourceDiffblueTest {
   @MethodsUnderTest({"Map AbstractLeafResource.getAttributes()"})
   void testGetAttributes() {
     // Arrange, Act and Assert
-    assertTrue(new FileResource().getAttributes().isEmpty());
+    assertTrue(FileResourceFactory.createFileResource().getAttributes().isEmpty());
   }
 
   /**
@@ -292,7 +293,7 @@ class AbstractLeafResourceDiffblueTest {
   @MethodsUnderTest({"Object AbstractLeafResource.getAttribute(String)"})
   void testGetAttribute() {
     // Arrange, Act and Assert
-    assertNull(new FileResource().getAttribute("Attribute Key"));
+    assertNull(FileResourceFactory.createFileResource().getAttribute("Attribute Key"));
   }
 
   /**
@@ -307,7 +308,7 @@ class AbstractLeafResourceDiffblueTest {
   @MethodsUnderTest({"java.lang.Boolean AbstractLeafResource.isAttributeSet(String)"})
   void testIsAttributeSet() {
     // Arrange, Act and Assert
-    assertFalse(new FileResource().isAttributeSet("Attribute Key"));
+    assertFalse(FileResourceFactory.createFileResource().isAttributeSet("Attribute Key"));
   }
 
   /**
@@ -322,13 +323,13 @@ class AbstractLeafResourceDiffblueTest {
   @MethodsUnderTest({"void AbstractLeafResource.setAttribute(String, String)"})
   void testSetAttribute() {
     // Arrange
-    FileResource fileResource = new FileResource();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    fileResource.setAttribute("Attribute Key", "42");
+    createFileResourceResult.setAttribute("Attribute Key", "42");
 
     // Assert
-    Map<String, String> attributes = fileResource.getAttributes();
+    Map<String, String> attributes = createFileResourceResult.getAttributes();
     assertEquals(1, attributes.size());
     assertEquals("42", attributes.get("Attribute Key"));
   }
@@ -358,15 +359,12 @@ class AbstractLeafResourceDiffblueTest {
   })
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    FileResource fileResource = new FileResource();
-    fileResource.setId("42");
-
-    FileResource fileResource2 = new FileResource();
-    fileResource2.setId("42");
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
+    FileResource createFileResourceResult2 = FileResourceFactory.createFileResource();
 
     // Act and Assert
-    assertEquals(fileResource, fileResource2);
-    assertEquals(fileResource.hashCode(), fileResource2.hashCode());
+    assertEquals(createFileResourceResult, createFileResourceResult2);
+    assertEquals(createFileResourceResult.hashCode(), createFileResourceResult2.hashCode());
   }
 
   /**
@@ -394,12 +392,12 @@ class AbstractLeafResourceDiffblueTest {
   })
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    FileResource fileResource = new FileResource();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act and Assert
-    assertEquals(fileResource, fileResource);
-    int expectedHashCodeResult = fileResource.hashCode();
-    assertEquals(expectedHashCodeResult, fileResource.hashCode());
+    assertEquals(createFileResourceResult, createFileResourceResult);
+    int expectedHashCodeResult = createFileResourceResult.hashCode();
+    assertEquals(expectedHashCodeResult, createFileResourceResult.hashCode());
   }
 
   /**
@@ -421,8 +419,11 @@ class AbstractLeafResourceDiffblueTest {
     "int AbstractLeafResource.hashCode()"
   })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
-    // Arrange, Act and Assert
-    assertNotEquals(new FileResource(), 1);
+    // Arrange
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
+
+    // Act and Assert
+    assertNotEquals(createFileResourceResult, DirectoryResourceFactory.createDirectoryResource());
   }
 
   /**
@@ -445,11 +446,10 @@ class AbstractLeafResourceDiffblueTest {
   })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    FileResource fileResource = new FileResource();
-    fileResource.setId("42");
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act and Assert
-    assertNotEquals(fileResource, new FileResource());
+    assertNotEquals(createFileResourceResult, new FileResource());
   }
 
   /**
@@ -472,15 +472,11 @@ class AbstractLeafResourceDiffblueTest {
   })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    FileResource fileResource = new FileResource();
-    fileResource.setType("42");
-    fileResource.setId("42");
-
-    FileResource fileResource2 = new FileResource();
-    fileResource2.setId("42");
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
+    createFileResourceResult.setType("file:///test/directory/testfile.txt");
 
     // Act and Assert
-    assertNotEquals(fileResource, fileResource2);
+    assertNotEquals(createFileResourceResult, FileResourceFactory.createFileResource());
   }
 
   /**
@@ -503,15 +499,11 @@ class AbstractLeafResourceDiffblueTest {
   })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    FileResource fileResource = new FileResource();
-    fileResource.setSerialisedFormat("42");
-    fileResource.setId("42");
-
-    FileResource fileResource2 = new FileResource();
-    fileResource2.setId("42");
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
+    createFileResourceResult.setSerialisedFormat("file:///test/directory/testfile.txt");
 
     // Act and Assert
-    assertNotEquals(fileResource, fileResource2);
+    assertNotEquals(createFileResourceResult, FileResourceFactory.createFileResource());
   }
 
   /**
@@ -534,15 +526,41 @@ class AbstractLeafResourceDiffblueTest {
   })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    FileResource fileResource = new FileResource();
-    fileResource.setConnectionDetail(mock(ConnectionDetail.class));
-    fileResource.setId("42");
-
-    FileResource fileResource2 = new FileResource();
-    fileResource2.setId("42");
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
+    createFileResourceResult.setConnectionDetail(mock(ConnectionDetail.class));
 
     // Act and Assert
-    assertNotEquals(fileResource, fileResource2);
+    assertNotEquals(createFileResourceResult, FileResourceFactory.createFileResource());
+  }
+
+  /**
+   * Test {@link AbstractLeafResource#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link AbstractLeafResource#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean AbstractLeafResource.equals(Object)",
+    "int AbstractLeafResource.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+    // Arrange
+    HashMap<String, String> attributes = new HashMap<>();
+    attributes.put("Key", "42");
+
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
+    createFileResourceResult.setAttributes(attributes);
+
+    // Act and Assert
+    assertNotEquals(createFileResourceResult, FileResourceFactory.createFileResource());
   }
 
   /**
@@ -565,7 +583,7 @@ class AbstractLeafResourceDiffblueTest {
   })
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new FileResource(), null);
+    assertNotEquals(FileResourceFactory.createFileResource(), null);
   }
 
   /**
@@ -588,6 +606,7 @@ class AbstractLeafResourceDiffblueTest {
   })
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new FileResource(), "Different type to AbstractLeafResource");
+    assertNotEquals(
+        FileResourceFactory.createFileResource(), "Different type to AbstractLeafResource");
   }
 }
