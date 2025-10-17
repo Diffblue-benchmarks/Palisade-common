@@ -120,14 +120,12 @@
       <groupId>com.typesafe.akka</groupId>
       <artifactId>akka-stream_${scala.version}</artifactId>
       <version>${akka.version}</version>
-      <scope>provided</scope>
     </dependency>
     <dependency>
-      <!-- Akka Actor for test runtime (required for CoordinatedShutdown) -->
+      <!-- Akka Actor (required for CoordinatedShutdown) -->
       <groupId>com.typesafe.akka</groupId>
       <artifactId>akka-actor_${scala.version}</artifactId>
       <version>${akka.version}</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>

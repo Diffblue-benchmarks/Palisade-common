@@ -68,7 +68,7 @@ public class UriBuilder {
             final AuthorityBuilder thisBuilder = this;
             return new IUserInfo() {
                 @Override
-                public IHost withUserInfo(String userInfo) {
+                public IHost withUserInfo(final String userInfo) {
                     return host -> port -> String.format(
                             "//%s%s%s",
                             Optional.ofNullable(userInfo).or(() -> baseUri.map(URI::getUserInfo)).map(str -> str + "@").orElse(null),
@@ -199,7 +199,7 @@ public class UriBuilder {
         final UriBuilder thisBuilder = this;
         return new IScheme() {
             @Override
-            public IAuthority withScheme(String scheme) {
+            public IAuthority withScheme(final String scheme) {
                 return authority -> path -> query -> (String fragment) -> {
                     String thisScheme = Optional.ofNullable(scheme)
                             .or(() -> baseUri.map(URI::getScheme))
