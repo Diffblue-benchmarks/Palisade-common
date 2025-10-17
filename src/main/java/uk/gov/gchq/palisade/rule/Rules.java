@@ -121,6 +121,16 @@ public class Rules<T extends Serializable> implements Serializable {
         return rulesMap;
     }
 
+    /**
+     * Package-private getter for the rulesMap field returning the concrete type.
+     * This method is primarily intended for testing purposes to verify the internal state.
+     *
+     * @return the rulesMap LinkedHashMap
+     */
+    LinkedHashMap<String, Rule<T>> getRulesMap() {
+        return rulesMap;
+    }
+
     @Generated
     public void setRules(final Map<String, Rule<T>> rulesMap) {
         requireNonNull(rulesMap);

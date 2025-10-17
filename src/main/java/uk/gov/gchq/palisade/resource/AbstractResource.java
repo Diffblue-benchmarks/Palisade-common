@@ -75,12 +75,23 @@ public abstract class AbstractResource implements Resource {
         return Objects.hash(id);
     }
 
+    /**
+     * Protected method to get the super class string representation.
+     * This method is extracted to improve testability by allowing subclasses
+     * to override the behavior if needed for testing purposes.
+     *
+     * @return the super class toString() output
+     */
+    protected String getSuperToString() {
+        return super.toString();
+    }
+
     @Override
     @Generated
     public String toString() {
         return new StringJoiner(", ", AbstractResource.class.getSimpleName() + "[", "]")
                 .add("id='" + id + "'")
-                .add(super.toString())
+                .add(getSuperToString())
                 .toString();
     }
 

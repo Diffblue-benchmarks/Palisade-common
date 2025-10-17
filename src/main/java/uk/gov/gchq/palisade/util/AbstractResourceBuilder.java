@@ -46,6 +46,16 @@ public abstract class AbstractResourceBuilder {
     }
 
     /**
+     * Package-private getter for the ServiceLoader instance.
+     * This method is primarily intended for testing purposes to verify provider state.
+     *
+     * @return the ServiceLoader instance used for loading AbstractResourceBuilder providers
+     */
+    static ServiceLoader<AbstractResourceBuilder> getLoader() {
+        return LOADER;
+    }
+
+    /**
      * Taking a resourceUri, create a {@link Resource} using the appropriate implementation of the {@link AbstractResourceBuilder} provided in the LOADER,
      * or throw an exception if the resource scheme is not supported, or no builder exists to build that scheme
      *

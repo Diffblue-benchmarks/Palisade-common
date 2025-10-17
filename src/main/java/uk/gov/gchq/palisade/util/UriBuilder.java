@@ -54,13 +54,39 @@ public class UriBuilder {
             return new AuthorityBuilder().build();
         }
 
+        /**
+         * Package-private getter for the baseUri field.
+         * This method is primarily intended for testing purposes to verify the builder state.
+         *
+         * @return the baseUri Optional
+         */
+        Optional<URI> getBaseUri() {
+            return baseUri;
+        }
+
         private IUserInfo build() {
-            return userInfo -> host -> port -> String.format(
-                    "//%s%s%s",
-                    Optional.ofNullable(userInfo).or(() -> baseUri.map(URI::getUserInfo)).map(str -> str + "@").orElse(null),
-                    Optional.ofNullable(host).or(() -> baseUri.map(URI::getHost)).orElseThrow(),
-                    Optional.ofNullable(port).or(() -> baseUri.map(URI::getPort)).map(str -> ":" + port).orElse(null)
-            );
+            final AuthorityBuilder thisBuilder = this;
+            return new IUserInfo() {
+                @Override
+                public IHost withUserInfo(String userInfo) {
+                    return host -> port -> String.format(
+                            "//%s%s%s",
+                            Optional.ofNullable(userInfo).or(() -> baseUri.map(URI::getUserInfo)).map(str -> str + "@").orElse(null),
+                            Optional.ofNullable(host).or(() -> baseUri.map(URI::getHost)).orElseThrow(),
+                            Optional.ofNullable(port).or(() -> baseUri.map(URI::getPort)).map(str -> ":" + port).orElse(null)
+                    );
+                }
+
+                /**
+                 * Package-private getter for the AuthorityBuilder instance.
+                 * This method is primarily intended for testing purposes.
+                 *
+                 * @return the AuthorityBuilder instance
+                 */
+                AuthorityBuilder getBuilder() {
+                    return thisBuilder;
+                }
+            };
         }
 
         /**
@@ -154,45 +180,71 @@ public class UriBuilder {
     }
 
     /**
+     * Package-private getter for the baseUri field.
+     * This method is primarily intended for testing purposes to verify the builder state.
+     *
+     * @return the baseUri Optional
+     */
+    Optional<URI> getBaseUri() {
+        return baseUri;
+    }
+
+    /**
      * Starter method for the Builder class. This method is called to start the process of creating the
      * URI class.
      *
      * @return interface {@link IScheme} for the next step in the build.
      */
     private IScheme build() {
-        return scheme -> authority -> path -> query -> (String fragment) -> {
-            String thisScheme = Optional.ofNullable(scheme)
-                    .or(() -> baseUri.map(URI::getScheme))
-                    .orElseThrow();
+        final UriBuilder thisBuilder = this;
+        return new IScheme() {
+            @Override
+            public IAuthority withScheme(String scheme) {
+                return authority -> path -> query -> (String fragment) -> {
+                    String thisScheme = Optional.ofNullable(scheme)
+                            .or(() -> baseUri.map(URI::getScheme))
+                            .orElseThrow();
 
-            String thisAuth = Optional.ofNullable(authority)
-                    .filter(auth -> !auth.isEmpty())
-                    .or(() -> baseUri.map(URI::getAuthority))
-                    .orElse(null);
+                    String thisAuth = Optional.ofNullable(authority)
+                            .filter(auth -> !auth.isEmpty())
+                            .or(() -> baseUri.map(URI::getAuthority))
+                            .orElse(null);
 
-            String thisPath = Optional.ofNullable(path)
-                    .or(() -> baseUri.map(URI::getPath))
-                    .orElseThrow();
+                    String thisPath = Optional.ofNullable(path)
+                            .or(() -> baseUri.map(URI::getPath))
+                            .orElseThrow();
 
-            String thisQuery = Optional.ofNullable(query)
-                    .filter(qry -> !qry.isEmpty())
-                    .or(() -> baseUri.map(URI::getQuery))
-                    .orElse(null);
+                    String thisQuery = Optional.ofNullable(query)
+                            .filter(qry -> !qry.isEmpty())
+                            .or(() -> baseUri.map(URI::getQuery))
+                            .orElse(null);
 
-            String thisFrag = Optional.ofNullable(fragment)
-                    .filter(frag -> !frag.isEmpty())
-                    .or(() -> baseUri.map(URI::getFragment))
-                    .orElse(null);
-            try {
-                return new URI(
-                        thisScheme,
-                        thisAuth,
-                        thisPath,
-                        thisQuery,
-                        thisFrag
-                );
-            } catch (URISyntaxException e) {
-                throw new IllegalArgumentException("Invalid URI: " + thisScheme + ":" + thisAuth + "" + thisPath + "?" + thisQuery + "#" + thisFrag, e);
+                    String thisFrag = Optional.ofNullable(fragment)
+                            .filter(frag -> !frag.isEmpty())
+                            .or(() -> baseUri.map(URI::getFragment))
+                            .orElse(null);
+                    try {
+                        return new URI(
+                                thisScheme,
+                                thisAuth,
+                                thisPath,
+                                thisQuery,
+                                thisFrag
+                        );
+                    } catch (URISyntaxException e) {
+                        throw new IllegalArgumentException("Invalid URI: " + thisScheme + ":" + thisAuth + "" + thisPath + "?" + thisQuery + "#" + thisFrag, e);
+                    }
+                };
+            }
+
+            /**
+             * Package-private getter for the UriBuilder instance.
+             * This method is primarily intended for testing purposes.
+             *
+             * @return the UriBuilder instance
+             */
+            UriBuilder getBuilder() {
+                return thisBuilder;
             }
         };
     }

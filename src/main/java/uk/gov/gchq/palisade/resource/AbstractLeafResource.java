@@ -129,6 +129,16 @@ public abstract class AbstractLeafResource extends AbstractResource implements L
         return attributes;
     }
 
+    /**
+     * Package-private getter for the attributes field returning the concrete type.
+     * This method is primarily intended for testing purposes to verify the internal state.
+     *
+     * @return the attributes HashMap
+     */
+    HashMap<String, String> getAttributesMap() {
+        return attributes;
+    }
+
     @Generated
     public void setAttributes(final Map<String, String> attributes) {
         requireNonNull(attributes);
@@ -196,6 +206,17 @@ public abstract class AbstractLeafResource extends AbstractResource implements L
         return Objects.hash(super.hashCode(), type, serialisedFormat, connectionDetail, attributes);
     }
 
+    /**
+     * Protected method to get the super class string representation.
+     * This method is extracted to improve testability by allowing test code
+     * to control the output if needed.
+     *
+     * @return the super class toString() output
+     */
+    protected String getSuperToString() {
+        return super.toString();
+    }
+
     @Override
     @Generated
     public String toString() {
@@ -204,7 +225,7 @@ public abstract class AbstractLeafResource extends AbstractResource implements L
                 .add("serialisedFormat='" + serialisedFormat + "'")
                 .add("connectionDetail=" + connectionDetail)
                 .add("attributes=" + attributes)
-                .add(super.toString())
+                .add(getSuperToString())
                 .toString();
     }
 }
