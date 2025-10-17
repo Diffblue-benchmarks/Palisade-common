@@ -130,12 +130,13 @@ public abstract class AbstractLeafResource extends AbstractResource implements L
     }
 
     /**
-     * Package-private getter for the attributes field returning the concrete type.
+     * Public getter for the attributes field returning the concrete type.
      * This method is primarily intended for testing purposes to verify the internal state.
+     * Made public to be accessible from test code and Diffblue Cover test generation.
      *
      * @return the attributes HashMap
      */
-    HashMap<String, String> getAttributesMap() {
+    public HashMap<String, String> getAttributesMap() {
         return attributes;
     }
 

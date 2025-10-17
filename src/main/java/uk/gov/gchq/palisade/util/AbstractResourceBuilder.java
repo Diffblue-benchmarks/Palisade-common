@@ -46,12 +46,14 @@ public abstract class AbstractResourceBuilder {
     }
 
     /**
-     * Package-private getter for the ServiceLoader instance.
+     * Public accessor for the ServiceLoader instance.
      * This method is primarily intended for testing purposes to verify provider state.
+     * Note: Named 'loader()' instead of 'getLoader()' to avoid confusion with builder pattern.
+     * Made public to allow Diffblue Cover to create assertions after refreshProviders() is called.
      *
      * @return the ServiceLoader instance used for loading AbstractResourceBuilder providers
      */
-    static ServiceLoader<AbstractResourceBuilder> getLoader() {
+    public static ServiceLoader<AbstractResourceBuilder> loader() {
         return LOADER;
     }
 
@@ -63,12 +65,25 @@ public abstract class AbstractResourceBuilder {
      * @return a newly created resource
      */
     public static Resource create(final URI resourceUri) {
-        AbstractResourceBuilder resourceBuilder = LOADER.stream()
+        AbstractResourceBuilder resourceBuilder = findBuilder(resourceUri);
+        return resourceBuilder.buildNormal(resourceUri);
+    }
+
+    /**
+     * Finds an appropriate builder for the given URI.
+     * This method is extracted to improve testability by allowing test code
+     * to control the builder selection if needed.
+     *
+     * @param resourceUri the URI to find a builder for
+     * @return an AbstractResourceBuilder that accepts the URI
+     * @throws IllegalArgumentException if no builder is found
+     */
+    protected static AbstractResourceBuilder findBuilder(final URI resourceUri) {
+        return LOADER.stream()
                 .map(Provider::get)
                 .filter(builder -> builder.accepts(resourceUri))
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException("No ResourceBuilder found that accepts " + resourceUri));
-        return resourceBuilder.buildNormal(resourceUri);
     }
 
     /**
@@ -97,13 +112,13 @@ public abstract class AbstractResourceBuilder {
         URI absoluteResourceId;
 
         if (!uri.getSchemeSpecificPart().startsWith(URI_PATH_SEPARATOR)) {
-            var localResource = new File(uri.getSchemeSpecificPart());
+            var localResource = createFile(uri.getSchemeSpecificPart());
             String path;
             try {
-                path = localResource.getCanonicalPath();
+                path = getCanonicalPath(localResource);
             } catch (IOException e) {
                 LOGGER.warn("Unable to get the Canonical path value", e);
-                path = localResource.getAbsolutePath();
+                path = getAbsolutePath(localResource);
             }
 
             if (!path.startsWith(URI_PATH_SEPARATOR)) {
@@ -111,7 +126,7 @@ public abstract class AbstractResourceBuilder {
             }
 
             // Check if the resource is a directory and the path does not end with a "/"
-            if (localResource.isDirectory() && !path.endsWith(URI_PATH_SEPARATOR)) {
+            if (isDirectory(localResource) && !path.endsWith(URI_PATH_SEPARATOR)) {
                 path += URI_PATH_SEPARATOR;
             }
             absoluteResourceId = UriBuilder.create(uri)
@@ -135,6 +150,55 @@ public abstract class AbstractResourceBuilder {
             LOGGER.error("Unable to build a normal URI", e);
             return build(uri);
         }
+    }
+
+    /**
+     * Creates a File object from the given path.
+     * This method is extracted to improve testability by allowing test code
+     * to override the file system interaction if needed.
+     *
+     * @param path the file path
+     * @return a File object
+     */
+    protected File createFile(final String path) {
+        return new File(path);
+    }
+
+    /**
+     * Gets the canonical path of a file.
+     * This method is extracted to improve testability by allowing test code
+     * to control the path resolution if needed.
+     *
+     * @param file the file to get the canonical path from
+     * @return the canonical path
+     * @throws IOException if an I/O error occurs
+     */
+    protected String getCanonicalPath(final File file) throws IOException {
+        return file.getCanonicalPath();
+    }
+
+    /**
+     * Gets the absolute path of a file.
+     * This method is extracted to improve testability by allowing test code
+     * to control the path resolution if needed.
+     *
+     * @param file the file to get the absolute path from
+     * @return the absolute path
+     */
+    protected String getAbsolutePath(final File file) {
+        return file.getAbsolutePath();
+    }
+
+    /**
+     * Checks if a file is a directory.
+     * This method is extracted to improve testability by allowing test code
+     * to control the directory check if needed.
+     *
+     * @param file the file to check
+     * @return true if the file is a directory, false otherwise
+     */
+    protected boolean isDirectory(final File file) {
+        return file.isDirectory();
     }
 
     /**

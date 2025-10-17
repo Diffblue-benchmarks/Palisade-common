@@ -55,12 +55,13 @@ public class UriBuilder {
         }
 
         /**
-         * Package-private getter for the baseUri field.
+         * Public getter for the baseUri field.
          * This method is primarily intended for testing purposes to verify the builder state.
+         * Made public to allow Diffblue Cover to create assertions after create() methods.
          *
          * @return the baseUri Optional
          */
-        Optional<URI> getBaseUri() {
+        public Optional<URI> getBaseUri() {
             return baseUri;
         }
 
@@ -78,12 +79,14 @@ public class UriBuilder {
                 }
 
                 /**
-                 * Package-private getter for the AuthorityBuilder instance.
+                 * Public getter for the AuthorityBuilder instance.
                  * This method is primarily intended for testing purposes.
+                 * Made public to allow Diffblue Cover to create assertions after create() methods.
                  *
                  * @return the AuthorityBuilder instance
                  */
-                AuthorityBuilder getBuilder() {
+                @Override
+                public AuthorityBuilder getBuilder() {
                     return thisBuilder;
                 }
             };
@@ -109,6 +112,15 @@ public class UriBuilder {
             default IHost withoutUserInfo() {
                 return withUserInfo(null);
             }
+
+            /**
+             * Gets the underlying AuthorityBuilder instance.
+             * This method is primarily intended for testing purposes.
+             * Made public to allow Diffblue Cover to create assertions after create() methods.
+             *
+             * @return the AuthorityBuilder instance
+             */
+            AuthorityBuilder getBuilder();
         }
 
         /**
@@ -180,12 +192,13 @@ public class UriBuilder {
     }
 
     /**
-     * Package-private getter for the baseUri field.
+     * Public getter for the baseUri field.
      * This method is primarily intended for testing purposes to verify the builder state.
+     * Made public to allow Diffblue Cover to create assertions after create() methods.
      *
      * @return the baseUri Optional
      */
-    Optional<URI> getBaseUri() {
+    public Optional<URI> getBaseUri() {
         return baseUri;
     }
 
@@ -238,12 +251,14 @@ public class UriBuilder {
             }
 
             /**
-             * Package-private getter for the UriBuilder instance.
+             * Public getter for the UriBuilder instance.
              * This method is primarily intended for testing purposes.
+             * Made public to allow Diffblue Cover to create assertions after create() methods.
              *
              * @return the UriBuilder instance
              */
-            UriBuilder getBuilder() {
+            @Override
+            public UriBuilder getBuilder() {
                 return thisBuilder;
             }
         };
@@ -269,6 +284,15 @@ public class UriBuilder {
         default IAuthority withoutScheme() {
             return withScheme(null);
         }
+
+        /**
+         * Gets the underlying UriBuilder instance.
+         * This method is primarily intended for testing purposes.
+         * Made public to allow Diffblue Cover to create assertions after create() methods.
+         *
+         * @return the UriBuilder instance
+         */
+        UriBuilder getBuilder();
     }
 
     /**

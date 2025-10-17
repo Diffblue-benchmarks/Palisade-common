@@ -5,6 +5,7 @@ List of third-party dependencies grouped by their license type
 * jackson-databind ([com.fasterxml.jackson.core:jackson-databind:2.11.0](http://github.com/FasterXML/jackson))
 * akka-actor ([com.typesafe.akka:akka-actor_2.13:2.6.10](https://akka.io/))
 * akka-stream ([com.typesafe.akka:akka-stream_2.13:2.6.10](https://akka.io/))
+* Scala Library ([org.scala-lang:scala-library:2.13.3](https://www.scala-lang.org/))
 
 ### [Eclipse Public License v2.0](./licenses/not recognised):
 * JUnit Jupiter Engine ([org.junit.jupiter:junit-jupiter-engine:5.13.4](https://junit.org/))

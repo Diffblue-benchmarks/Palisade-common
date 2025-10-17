@@ -122,12 +122,13 @@ public class Rules<T extends Serializable> implements Serializable {
     }
 
     /**
-     * Package-private getter for the rulesMap field returning the concrete type.
+     * Public getter for the rulesMap field returning the concrete type.
      * This method is primarily intended for testing purposes to verify the internal state.
+     * Made public to allow Diffblue Cover to create assertions after setRules() is called.
      *
      * @return the rulesMap LinkedHashMap
      */
-    LinkedHashMap<String, Rule<T>> getRulesMap() {
+    public LinkedHashMap<String, Rule<T>> getRulesMap() {
         return rulesMap;
     }
 
