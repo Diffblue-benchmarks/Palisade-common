@@ -282,6 +282,21 @@ class AbstractLeafResourceDiffblueTest {
   }
 
   /**
+   * Test {@link AbstractLeafResource#getAttributesMap()}.
+   *
+   * <p>Method under test: {@link AbstractLeafResource#getAttributesMap()}
+   */
+  @Test
+  @DisplayName("Test getAttributesMap()")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"HashMap AbstractLeafResource.getAttributesMap()"})
+  void testGetAttributesMap() {
+    // Arrange, Act and Assert
+    assertTrue(FileResourceFactory.createFileResource().getAttributesMap().isEmpty());
+  }
+
+  /**
    * Test {@link AbstractLeafResource#getAttribute(String)}.
    *
    * <p>Method under test: {@link AbstractLeafResource#getAttribute(String)}

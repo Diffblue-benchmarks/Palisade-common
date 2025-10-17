@@ -35,7 +35,9 @@ class FileResourceDiffblueTest {
     assertNull(actualFileResource.getType());
     assertNull(actualFileResource.getId());
     assertNull(actualFileResource.getConnectionDetail());
-    assertTrue(actualFileResource.getAttributes().isEmpty());
+    Map<String, String> attributes = actualFileResource.getAttributes();
+    assertTrue(attributes.isEmpty());
+    assertSame(attributes, actualFileResource.getAttributesMap());
   }
 
   /**
