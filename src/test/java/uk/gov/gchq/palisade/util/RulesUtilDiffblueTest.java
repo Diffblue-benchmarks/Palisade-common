@@ -23,8 +23,7 @@ class RulesUtilDiffblueTest {
    * AtomicLong)}.
    *
    * <ul>
-   *   <li>Given {@code 42}.
-   *   <li>When {@link Rules} (default constructor) addRule {@code 42} and {@link Rule}.
+   *   <li>Given {@code "EmployeeDataAccessRule"}.
    * </ul>
    *
    * <p>Method under test: {@link RulesUtil#applyRulesToStream(Stream, User, Context, Rules,
@@ -32,13 +31,13 @@ class RulesUtilDiffblueTest {
    */
   @Test
   @DisplayName(
-      "Test applyRulesToStream(Stream, User, Context, Rules, AtomicLong, AtomicLong); given '42'; when Rules (default constructor) addRule '42' and Rule")
+      "Test applyRulesToStream(Stream, User, Context, Rules, AtomicLong, AtomicLong); given '\"EmployeeDataAccessRule\"'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Stream RulesUtil.applyRulesToStream(Stream, User, Context, Rules, AtomicLong, AtomicLong)"
   })
-  void testApplyRulesToStream_given42_whenRulesAddRule42AndRule() {
+  void testApplyRulesToStream_givenEmployeeDataAccessRule() {
     // Arrange
     ArrayList<Serializable> serializableList = new ArrayList<>();
     Stream<Serializable> records = serializableList.stream();
@@ -46,7 +45,7 @@ class RulesUtilDiffblueTest {
     Context context = new Context();
 
     Rules<Serializable> rules = new Rules<>();
-    rules.addRule("42", mock(Rule.class));
+    rules.addRule("\"EmployeeDataAccessRule\"", mock(Rule.class));
     AtomicLong recordsProcessed = new AtomicLong();
 
     // Act

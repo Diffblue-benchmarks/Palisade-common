@@ -39,24 +39,27 @@ class SerialiserDiffblueTest {
    * Test {@link Serialiser#tryCreate(Class, String)}.
    *
    * <ul>
-   *   <li>When {@code Domain Class Name}.
+   *   <li>When {@code "Serialiser"}.
    *   <li>Then return not Present.
    * </ul>
    *
    * <p>Method under test: {@link Serialiser#tryCreate(Class, String)}
    */
   @Test
-  @DisplayName("Test tryCreate(Class, String); when 'Domain Class Name'; then return not Present")
+  @DisplayName(
+      "Test tryCreate(Class, String); when '\"uk.gov.gchq.palisade.data.serialise.Serialiser\"'; then return not Present")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional Serialiser.tryCreate(Class, String)"})
-  void testTryCreate_whenDomainClassName_thenReturnNotPresent() {
+  void testTryCreate_whenUkGovGchqPalisadeDataSerialiseSerialiser_thenReturnNotPresent() {
     // Arrange
     Class<Serialiser> forNameResult = Serialiser.class;
 
     // Act
     Optional<Serialiser<Object>> actualTryCreateResult =
-        Serialiser.tryCreate((Class<Serialiser<?>>) (Class) forNameResult, "Domain Class Name");
+        Serialiser.tryCreate(
+            (Class<Serialiser<?>>) (Class) forNameResult,
+            "\"uk.gov.gchq.palisade.data.serialise.Serialiser\"");
 
     // Assert
     assertFalse(actualTryCreateResult.isPresent());
@@ -78,7 +81,7 @@ class SerialiserDiffblueTest {
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Optional Serialiser.tryCreate(Class, String)"})
-  void testTryCreate_whenUkGovGchqPalisadeDataSerialiseSerialiser_thenReturnNotPresent() {
+  void testTryCreate_whenUkGovGchqPalisadeDataSerialiseSerialiser_thenReturnNotPresent2() {
     // Arrange
     Class<Serialiser> forNameResult = Serialiser.class;
 

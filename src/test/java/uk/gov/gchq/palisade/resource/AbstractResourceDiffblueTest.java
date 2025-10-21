@@ -31,10 +31,11 @@ class AbstractResourceDiffblueTest {
     FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    FileResource actualIdResult = createFileResourceResult.id("42");
+    FileResource actualIdResult =
+        createFileResourceResult.id("\"resource-1234-abc-5678-def-91011-ghi\"");
 
     // Assert
-    assertEquals("42", createFileResourceResult.getId());
+    assertEquals("\"resource-1234-abc-5678-def-91011-ghi\"", createFileResourceResult.getId());
     assertSame(createFileResourceResult, actualIdResult);
   }
 
@@ -58,27 +59,27 @@ class AbstractResourceDiffblueTest {
    * Test {@link AbstractResource#setId(String)}.
    *
    * <ul>
-   *   <li>When {@code 42}.
-   *   <li>Then createDirectoryResource Id is {@code 42}.
+   *   <li>Then createDirectoryResource Id is {@code "resource-1234567890-abcdefg"}.
    * </ul>
    *
    * <p>Method under test: {@link AbstractResource#setId(String)}
    */
   @Test
-  @DisplayName("Test setId(String); when '42'; then createDirectoryResource Id is '42'")
+  @DisplayName(
+      "Test setId(String); then createDirectoryResource Id is '\"resource-1234567890-abcdefg\"'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void AbstractResource.setId(String)"})
-  void testSetId_when42_thenCreateDirectoryResourceIdIs42() {
+  void testSetId_thenCreateDirectoryResourceIdIsResource1234567890Abcdefg() {
     // Arrange
     DirectoryResource createDirectoryResourceResult =
         DirectoryResourceFactory.createDirectoryResource();
 
     // Act
-    createDirectoryResourceResult.setId("42");
+    createDirectoryResourceResult.setId("\"resource-1234567890-abcdefg\"");
 
     // Assert
-    assertEquals("42", createDirectoryResourceResult.getId());
+    assertEquals("\"resource-1234567890-abcdefg\"", createDirectoryResourceResult.getId());
   }
 
   /**
@@ -150,31 +151,8 @@ class AbstractResourceDiffblueTest {
     // Arrange
     FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
-    // Act and Assert
-    assertNotEquals(createFileResourceResult, DirectoryResourceFactory.createDirectoryResource());
-  }
-
-  /**
-   * Test {@link AbstractResource#equals(Object)}.
-   *
-   * <ul>
-   *   <li>When other is different.
-   *   <li>Then return not equal.
-   * </ul>
-   *
-   * <p>Method under test: {@link AbstractResource#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"boolean AbstractResource.equals(Object)", "int AbstractResource.hashCode()"})
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange
-    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
-
     FileResource fileResource = mock(FileResource.class);
-    when(fileResource.getId()).thenReturn("42");
+    when(fileResource.getId()).thenReturn("\"resource-1234567890\"");
 
     // Act and Assert
     assertNotEquals(createFileResourceResult, fileResource);

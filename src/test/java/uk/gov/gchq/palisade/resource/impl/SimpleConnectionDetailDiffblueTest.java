@@ -36,11 +36,11 @@ class SimpleConnectionDetailDiffblueTest {
   void testGettersAndSetters() {
     // Arrange and Act
     SimpleConnectionDetail actualSimpleConnectionDetail = new SimpleConnectionDetail();
-    actualSimpleConnectionDetail.setServiceName("Service Name");
+    actualSimpleConnectionDetail.setServiceName("\"DataAccessService\"");
     actualSimpleConnectionDetail.toString();
 
     // Assert
-    assertEquals("Service Name", actualSimpleConnectionDetail.getServiceName());
+    assertEquals("\"DataAccessService\"", actualSimpleConnectionDetail.getServiceName());
   }
 
   /**
@@ -59,10 +59,11 @@ class SimpleConnectionDetailDiffblueTest {
 
     // Act
     SimpleConnectionDetail actualServiceNameResult =
-        simpleConnectionDetail.serviceName("Service Name");
+        simpleConnectionDetail.serviceName("\"https://palisade.gov.uk/data-service\"");
 
     // Assert
-    assertEquals("Service Name", simpleConnectionDetail.getServiceName());
+    assertEquals(
+        "\"https://palisade.gov.uk/data-service\"", simpleConnectionDetail.getServiceName());
     assertSame(simpleConnectionDetail, actualServiceNameResult);
   }
 
@@ -108,10 +109,10 @@ class SimpleConnectionDetailDiffblueTest {
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     SimpleConnectionDetail simpleConnectionDetail = new SimpleConnectionDetail();
-    simpleConnectionDetail.setServiceName("Service Name");
+    simpleConnectionDetail.setServiceName("\"DataAccessService\"");
 
     SimpleConnectionDetail simpleConnectionDetail2 = new SimpleConnectionDetail();
-    simpleConnectionDetail2.setServiceName("Service Name");
+    simpleConnectionDetail2.setServiceName("\"DataAccessService\"");
 
     // Act and Assert
     assertEquals(simpleConnectionDetail, simpleConnectionDetail2);
@@ -173,7 +174,7 @@ class SimpleConnectionDetailDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     SimpleConnectionDetail simpleConnectionDetail = new SimpleConnectionDetail();
-    simpleConnectionDetail.setServiceName("Service Name");
+    simpleConnectionDetail.setServiceName("\"DataAccessService\"");
 
     // Act and Assert
     assertNotEquals(simpleConnectionDetail, new SimpleConnectionDetail());

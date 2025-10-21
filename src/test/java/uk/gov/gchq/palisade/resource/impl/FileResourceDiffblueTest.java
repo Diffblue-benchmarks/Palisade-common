@@ -55,10 +55,11 @@ class FileResourceDiffblueTest {
     FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    FileResource actualIdResult = createFileResourceResult.id("42");
+    FileResource actualIdResult =
+        createFileResourceResult.id("\"file:/usr/local/palisade/data/sample.txt\"");
 
     // Assert
-    assertEquals("42", createFileResourceResult.getId());
+    assertEquals("\"file:/usr/local/palisade/data/sample.txt\"", createFileResourceResult.getId());
     assertSame(createFileResourceResult, actualIdResult);
   }
 
@@ -77,10 +78,10 @@ class FileResourceDiffblueTest {
     FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    FileResource actualTypeResult = createFileResourceResult.type("Type");
+    FileResource actualTypeResult = createFileResourceResult.type("\"application/pdf\"");
 
     // Assert
-    assertEquals("Type", createFileResourceResult.getType());
+    assertEquals("\"application/pdf\"", createFileResourceResult.getType());
     assertSame(createFileResourceResult, actualTypeResult);
   }
 
@@ -100,10 +101,10 @@ class FileResourceDiffblueTest {
 
     // Act
     FileResource actualSerialisedFormatResult =
-        createFileResourceResult.serialisedFormat("Serialised Format");
+        createFileResourceResult.serialisedFormat("\"application/json\"");
 
     // Assert
-    assertEquals("Serialised Format", createFileResourceResult.getSerialisedFormat());
+    assertEquals("\"application/json\"", createFileResourceResult.getSerialisedFormat());
     assertSame(createFileResourceResult, actualSerialisedFormatResult);
   }
 
@@ -173,7 +174,8 @@ class FileResourceDiffblueTest {
     FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    FileResource actualAttributeResult = createFileResourceResult.attribute("Attribute Key", "42");
+    FileResource actualAttributeResult =
+        createFileResourceResult.attribute("\"filePermission\"", "\"file:/dev/Palisade/test.txt\"");
 
     // Assert
     assertSame(createFileResourceResult, actualAttributeResult);

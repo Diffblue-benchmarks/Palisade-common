@@ -146,39 +146,14 @@ class ContextDiffblueTest {
     Context context = new Context();
 
     // Act
-    Context actualPurposeResult = context.purpose("Purpose");
+    Context actualPurposeResult = context.purpose("\"Research on climate change impact\"");
 
     // Assert
-    assertEquals("Purpose", context.getPurpose());
+    assertEquals("\"Research on climate change impact\"", context.getPurpose());
     Map<String, Object> contentsCopy = context.getContentsCopy();
     assertEquals(1, contentsCopy.size());
-    assertEquals("Purpose", contentsCopy.get("purpose"));
+    assertEquals("\"Research on climate change impact\"", contentsCopy.get("purpose"));
     assertSame(context, actualPurposeResult);
-  }
-
-  /**
-   * Test {@link Context#getPurpose()}.
-   *
-   * <ul>
-   *   <li>Given {@link Context#Context()} {@code purpose} is createFileResource.
-   *   <li>Then throw {@link RuntimeException}.
-   * </ul>
-   *
-   * <p>Method under test: {@link Context#getPurpose()}
-   */
-  @Test
-  @DisplayName(
-      "Test getPurpose(); given Context() 'purpose' is createFileResource; then throw RuntimeException")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"String Context.getPurpose()"})
-  void testGetPurpose_givenContextPurposeIsCreateFileResource_thenThrowRuntimeException() {
-    // Arrange
-    Context context = new Context();
-    context.put("purpose", FileResourceFactory.createFileResource());
-
-    // Act and Assert
-    assertThrows(RuntimeException.class, () -> context.getPurpose());
   }
 
   /**
@@ -202,6 +177,34 @@ class ContextDiffblueTest {
   }
 
   /**
+   * Test {@link Context#getPurpose()}.
+   *
+   * <ul>
+   *   <li>Given {@link HashMap#HashMap()} {@code purpose} is createFileResource.
+   *   <li>Then throw {@link RuntimeException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link Context#getPurpose()}
+   */
+  @Test
+  @DisplayName(
+      "Test getPurpose(); given HashMap() 'purpose' is createFileResource; then throw RuntimeException")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"String Context.getPurpose()"})
+  void testGetPurpose_givenHashMapPurposeIsCreateFileResource_thenThrowRuntimeException() {
+    // Arrange
+    HashMap<String, Object> contents = new HashMap<>();
+    contents.put("purpose", FileResourceFactory.createFileResource());
+
+    Context context = new Context(new HashMap<>());
+    context.setContents(contents);
+
+    // Act and Assert
+    assertThrows(RuntimeException.class, () -> context.getPurpose());
+  }
+
+  /**
    * Test {@link Context#get(String)}.
    *
    * <p>Method under test: {@link Context#get(String)}
@@ -213,7 +216,7 @@ class ContextDiffblueTest {
   @MethodsUnderTest({"Object Context.get(String)"})
   void testGet() {
     // Arrange, Act and Assert
-    assertNull(new Context().get("Key"));
+    assertNull(new Context().get("\"userPurpose\""));
   }
 
   /**
@@ -232,13 +235,13 @@ class ContextDiffblueTest {
     FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    Context actualPutResult = context.put("Key", createFileResourceResult);
+    Context actualPutResult = context.put("\"userPurpose\"", createFileResourceResult);
 
     // Assert
     Map<String, Object> contentsCopy = context.getContentsCopy();
     assertEquals(1, contentsCopy.size());
     assertSame(context, actualPutResult);
-    assertSame(createFileResourceResult, contentsCopy.get("Key"));
+    assertSame(createFileResourceResult, contentsCopy.get("\"userPurpose\""));
   }
 
   /**
@@ -257,13 +260,14 @@ class ContextDiffblueTest {
     FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    Context actualPutIfAbsentResult = context.putIfAbsent("Key", createFileResourceResult);
+    Context actualPutIfAbsentResult =
+        context.putIfAbsent("\"userPurpose\"", createFileResourceResult);
 
     // Assert
     Map<String, Object> contentsCopy = context.getContentsCopy();
     assertEquals(1, contentsCopy.size());
     assertSame(context, actualPutIfAbsentResult);
-    assertSame(createFileResourceResult, contentsCopy.get("Key"));
+    assertSame(createFileResourceResult, contentsCopy.get("\"userPurpose\""));
   }
 
   /**
@@ -344,7 +348,7 @@ class ContextDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     Context context = new Context();
-    context.put("Key", FileResourceFactory.createFileResource());
+    context.put("\"userPurpose\"", FileResourceFactory.createFileResource());
 
     // Act and Assert
     assertNotEquals(context, new Context());

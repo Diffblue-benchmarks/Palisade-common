@@ -36,12 +36,12 @@ class UserIdDiffblueTest {
   void testGettersAndSetters() {
     // Arrange and Act
     UserId actualUserId = new UserId();
-    actualUserId.setId("42");
+    actualUserId.setId("\"User1234-5678-91011\"");
     String actualToStringResult = actualUserId.toString();
 
     // Assert
-    assertEquals("42", actualUserId.getId());
-    assertEquals("UserId[id='42']", actualToStringResult);
+    assertEquals("UserId[id='\"User1234-5678-91011\"']", actualToStringResult);
+    assertEquals("\"User1234-5678-91011\"", actualUserId.getId());
   }
 
   /**
@@ -79,10 +79,10 @@ class UserIdDiffblueTest {
     UserId userId = new UserId();
 
     // Act
-    UserId actualIdResult = userId.id("42");
+    UserId actualIdResult = userId.id("\"test-user-1234\"");
 
     // Assert
-    assertEquals("42", userId.getId());
+    assertEquals("\"test-user-1234\"", userId.getId());
     assertSame(userId, actualIdResult);
   }
 
@@ -109,10 +109,10 @@ class UserIdDiffblueTest {
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     UserId userId = new UserId();
-    userId.setId("42");
+    userId.setId("\"User1234-5678-91011\"");
 
     UserId userId2 = new UserId();
-    userId2.setId("42");
+    userId2.setId("\"User1234-5678-91011\"");
 
     // Act and Assert
     assertEquals(userId, userId2);
@@ -167,7 +167,7 @@ class UserIdDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     UserId userId = new UserId();
-    userId.setId("42");
+    userId.setId("\"User1234-5678-91011\"");
 
     // Act and Assert
     assertNotEquals(userId, new UserId());

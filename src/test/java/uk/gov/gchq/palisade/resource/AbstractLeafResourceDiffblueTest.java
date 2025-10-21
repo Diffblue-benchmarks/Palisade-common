@@ -14,7 +14,6 @@ import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import uk.gov.gchq.palisade.resource.impl.DirectoryResourceFactory;
 import uk.gov.gchq.palisade.resource.impl.FileResource;
 import uk.gov.gchq.palisade.resource.impl.FileResourceFactory;
 
@@ -34,10 +33,10 @@ class AbstractLeafResourceDiffblueTest {
     FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    FileResource actualTypeResult = createFileResourceResult.type("Type");
+    FileResource actualTypeResult = createFileResourceResult.type("\"employeeDataResource\"");
 
     // Assert
-    assertEquals("Type", createFileResourceResult.getType());
+    assertEquals("\"employeeDataResource\"", createFileResourceResult.getType());
     assertSame(createFileResourceResult, actualTypeResult);
   }
 
@@ -57,10 +56,10 @@ class AbstractLeafResourceDiffblueTest {
 
     // Act
     FileResource actualSerialisedFormatResult =
-        createFileResourceResult.serialisedFormat("Serialised Format");
+        createFileResourceResult.serialisedFormat("\"application/json\"");
 
     // Assert
-    assertEquals("Serialised Format", createFileResourceResult.getSerialisedFormat());
+    assertEquals("\"application/json\"", createFileResourceResult.getSerialisedFormat());
     assertSame(createFileResourceResult, actualSerialisedFormatResult);
   }
 
@@ -132,7 +131,8 @@ class AbstractLeafResourceDiffblueTest {
     FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    FileResource actualAttributeResult = createFileResourceResult.attribute("Attribute Key", "42");
+    FileResource actualAttributeResult =
+        createFileResourceResult.attribute("\"fileType\"", "\"ConfidentialDocument\"");
 
     // Assert
     assertSame(createFileResourceResult, actualAttributeResult);
@@ -157,26 +157,27 @@ class AbstractLeafResourceDiffblueTest {
    * Test {@link AbstractLeafResource#setType(String)}.
    *
    * <ul>
-   *   <li>When {@code Type}.
-   *   <li>Then createFileResource Type is {@code Type}.
+   *   <li>When {@code "application/pdf"}.
+   *   <li>Then createFileResource Type is {@code "application/pdf"}.
    * </ul>
    *
    * <p>Method under test: {@link AbstractLeafResource#setType(String)}
    */
   @Test
-  @DisplayName("Test setType(String); when 'Type'; then createFileResource Type is 'Type'")
+  @DisplayName(
+      "Test setType(String); when '\"application/pdf\"'; then createFileResource Type is '\"application/pdf\"'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void AbstractLeafResource.setType(String)"})
-  void testSetType_whenType_thenCreateFileResourceTypeIsType() {
+  void testSetType_whenApplicationPdf_thenCreateFileResourceTypeIsApplicationPdf() {
     // Arrange
     FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    createFileResourceResult.setType("Type");
+    createFileResourceResult.setType("\"application/pdf\"");
 
     // Assert
-    assertEquals("Type", createFileResourceResult.getType());
+    assertEquals("\"application/pdf\"", createFileResourceResult.getType());
   }
 
   /**
@@ -198,26 +199,26 @@ class AbstractLeafResourceDiffblueTest {
    * Test {@link AbstractLeafResource#setSerialisedFormat(String)}.
    *
    * <ul>
-   *   <li>Then createFileResource SerialisedFormat is {@code Serialised Format}.
+   *   <li>Then createFileResource SerialisedFormat is {@code "application/pdf"}.
    * </ul>
    *
    * <p>Method under test: {@link AbstractLeafResource#setSerialisedFormat(String)}
    */
   @Test
   @DisplayName(
-      "Test setSerialisedFormat(String); then createFileResource SerialisedFormat is 'Serialised Format'")
+      "Test setSerialisedFormat(String); then createFileResource SerialisedFormat is '\"application/pdf\"'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void AbstractLeafResource.setSerialisedFormat(String)"})
-  void testSetSerialisedFormat_thenCreateFileResourceSerialisedFormatIsSerialisedFormat() {
+  void testSetSerialisedFormat_thenCreateFileResourceSerialisedFormatIsApplicationPdf() {
     // Arrange
     FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    createFileResourceResult.setSerialisedFormat("Serialised Format");
+    createFileResourceResult.setSerialisedFormat("\"application/pdf\"");
 
     // Assert
-    assertEquals("Serialised Format", createFileResourceResult.getSerialisedFormat());
+    assertEquals("\"application/pdf\"", createFileResourceResult.getSerialisedFormat());
   }
 
   /**
@@ -308,7 +309,7 @@ class AbstractLeafResourceDiffblueTest {
   @MethodsUnderTest({"Object AbstractLeafResource.getAttribute(String)"})
   void testGetAttribute() {
     // Arrange, Act and Assert
-    assertNull(FileResourceFactory.createFileResource().getAttribute("Attribute Key"));
+    assertNull(FileResourceFactory.createFileResource().getAttribute("\"fileSize\""));
   }
 
   /**
@@ -323,7 +324,7 @@ class AbstractLeafResourceDiffblueTest {
   @MethodsUnderTest({"java.lang.Boolean AbstractLeafResource.isAttributeSet(String)"})
   void testIsAttributeSet() {
     // Arrange, Act and Assert
-    assertFalse(FileResourceFactory.createFileResource().isAttributeSet("Attribute Key"));
+    assertFalse(FileResourceFactory.createFileResource().isAttributeSet("\"filePermission\""));
   }
 
   /**
@@ -341,12 +342,12 @@ class AbstractLeafResourceDiffblueTest {
     FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    createFileResourceResult.setAttribute("Attribute Key", "42");
+    createFileResourceResult.setAttribute("\"filePermission\"", "\"ConfidentialDocument\"");
 
     // Assert
     Map<String, String> attributes = createFileResourceResult.getAttributes();
     assertEquals(1, attributes.size());
-    assertEquals("42", attributes.get("Attribute Key"));
+    assertEquals("\"ConfidentialDocument\"", attributes.get("\"filePermission\""));
   }
 
   /**
@@ -438,7 +439,7 @@ class AbstractLeafResourceDiffblueTest {
     FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act and Assert
-    assertNotEquals(createFileResourceResult, DirectoryResourceFactory.createDirectoryResource());
+    assertNotEquals(createFileResourceResult, new FileResource());
   }
 
   /**
@@ -462,9 +463,10 @@ class AbstractLeafResourceDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     FileResource createFileResourceResult = FileResourceFactory.createFileResource();
+    createFileResourceResult.setType("\"file:/usr/local/palisade/data.csv\"");
 
     // Act and Assert
-    assertNotEquals(createFileResourceResult, new FileResource());
+    assertNotEquals(createFileResourceResult, FileResourceFactory.createFileResource());
   }
 
   /**
@@ -488,7 +490,7 @@ class AbstractLeafResourceDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     FileResource createFileResourceResult = FileResourceFactory.createFileResource();
-    createFileResourceResult.setType("file:///test/directory/testfile.txt");
+    createFileResourceResult.setSerialisedFormat("\"application/pdf\"");
 
     // Act and Assert
     assertNotEquals(createFileResourceResult, FileResourceFactory.createFileResource());
@@ -515,7 +517,7 @@ class AbstractLeafResourceDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     FileResource createFileResourceResult = FileResourceFactory.createFileResource();
-    createFileResourceResult.setSerialisedFormat("file:///test/directory/testfile.txt");
+    createFileResourceResult.setConnectionDetail(mock(ConnectionDetail.class));
 
     // Act and Assert
     assertNotEquals(createFileResourceResult, FileResourceFactory.createFileResource());
@@ -541,35 +543,8 @@ class AbstractLeafResourceDiffblueTest {
   })
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
-    createFileResourceResult.setConnectionDetail(mock(ConnectionDetail.class));
-
-    // Act and Assert
-    assertNotEquals(createFileResourceResult, FileResourceFactory.createFileResource());
-  }
-
-  /**
-   * Test {@link AbstractLeafResource#equals(Object)}.
-   *
-   * <ul>
-   *   <li>When other is different.
-   *   <li>Then return not equal.
-   * </ul>
-   *
-   * <p>Method under test: {@link AbstractLeafResource#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "boolean AbstractLeafResource.equals(Object)",
-    "int AbstractLeafResource.hashCode()"
-  })
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
-    // Arrange
     HashMap<String, String> attributes = new HashMap<>();
-    attributes.put("Key", "42");
+    attributes.put("\"TestHashMapKey\"", "\"TestKey\"");
 
     FileResource createFileResourceResult = FileResourceFactory.createFileResource();
     createFileResourceResult.setAttributes(attributes);

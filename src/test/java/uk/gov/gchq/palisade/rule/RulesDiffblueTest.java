@@ -46,16 +46,23 @@ class RulesDiffblueTest {
   void testGettersAndSetters() {
     // Arrange and Act
     Rules<Serializable> actualRules = new Rules<>();
-    actualRules.setMessage("Not all who wander are lost");
+    actualRules.setMessage(
+        "\"User access restricted due to insufficient privileges. Please contact your system administrator for"
+            + " further assistance.\"");
     String actualToStringResult = actualRules.toString();
     String actualMessage = actualRules.getMessage();
     Map<String, Rule<Serializable>> actualRules2 = actualRules.getRules();
     LinkedHashMap<String, Rule<Serializable>> actualRulesMap = actualRules.getRulesMap();
 
     // Assert
-    assertEquals("Not all who wander are lost", actualMessage);
     assertEquals(
-        "Rules[message='Not all who wander are lost', rulesHashMap={}]", actualToStringResult);
+        "Rules[message='\"User access restricted due to insufficient privileges. Please contact your system"
+            + " administrator for further assistance.\"', rulesHashMap={}]",
+        actualToStringResult);
+    assertEquals(
+        "\"User access restricted due to insufficient privileges. Please contact your system administrator for"
+            + " further assistance.\"",
+        actualMessage);
     assertTrue(actualRules2.isEmpty());
     assertSame(actualRules2, actualRulesMap);
   }
@@ -117,10 +124,14 @@ class RulesDiffblueTest {
     Rules<Serializable> rules = new Rules<>();
 
     // Act
-    Rules<Serializable> actualMessageResult = rules.message("Not all who wander are lost");
+    Rules<Serializable> actualMessageResult =
+        rules.message(
+            "\"User access restricted to working hours only due to sensitive data protection rules.\"");
 
     // Assert
-    assertEquals("Not all who wander are lost", rules.getMessage());
+    assertEquals(
+        "\"User access restricted to working hours only due to sensitive data protection rules.\"",
+        rules.getMessage());
     assertSame(rules, actualMessageResult);
   }
 
@@ -139,7 +150,8 @@ class RulesDiffblueTest {
     Rules<Serializable> rules = new Rules<>();
 
     // Act
-    Rules<Serializable> actualAddRuleResult = rules.addRule("42", mock(Rule.class));
+    Rules<Serializable> actualAddRuleResult =
+        rules.addRule("\"EmployeeDataAccessRule\"", mock(Rule.class));
 
     // Assert
     assertSame(rules, actualAddRuleResult);
@@ -149,7 +161,8 @@ class RulesDiffblueTest {
    * Test {@link Rules#containsRules()}.
    *
    * <ul>
-   *   <li>Given {@link Rules} (default constructor) addRule {@code 42} and {@link Rule}.
+   *   <li>Given {@link Rules} (default constructor) addRule {@code "EmployeeDataAccessRule"} and
+   *       {@link Rule}.
    *   <li>Then return {@code true}.
    * </ul>
    *
@@ -157,14 +170,14 @@ class RulesDiffblueTest {
    */
   @Test
   @DisplayName(
-      "Test containsRules(); given Rules (default constructor) addRule '42' and Rule; then return 'true'")
+      "Test containsRules(); given Rules (default constructor) addRule '\"EmployeeDataAccessRule\"' and Rule; then return 'true'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean Rules.containsRules()"})
-  void testContainsRules_givenRulesAddRule42AndRule_thenReturnTrue() {
+  void testContainsRules_givenRulesAddRuleEmployeeDataAccessRuleAndRule_thenReturnTrue() {
     // Arrange
     Rules<Serializable> rules = new Rules<>();
-    rules.addRule("42", mock(Rule.class));
+    rules.addRule("\"EmployeeDataAccessRule\"", mock(Rule.class));
 
     // Act and Assert
     assertTrue(rules.containsRules());
@@ -271,7 +284,7 @@ class RulesDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     Rules<Serializable> rules = new Rules<>();
-    rules.addRule("42", mock(Rule.class));
+    rules.addRule("\"EmployeeDataAccessRule\"", mock(Rule.class));
 
     // Act and Assert
     assertNotEquals(rules, new Rules<>());
@@ -295,8 +308,8 @@ class RulesDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     Rules<Serializable> rules = new Rules<>();
-    rules.addRule("Id", mock(Rule.class));
     rules.addRule("42", mock(Rule.class));
+    rules.addRule("\"EmployeeDataAccessRule\"", mock(Rule.class));
 
     // Act and Assert
     assertNotEquals(rules, new Rules<>());
@@ -322,7 +335,7 @@ class RulesDiffblueTest {
     Rules<Serializable> rules = new Rules<>();
 
     Rules<Serializable> rules2 = new Rules<>();
-    rules2.addRule("42", mock(Rule.class));
+    rules2.addRule("\"EmployeeDataAccessRule\"", mock(Rule.class));
 
     // Act and Assert
     assertNotEquals(rules, rules2);
@@ -348,8 +361,8 @@ class RulesDiffblueTest {
     Rules<Serializable> rules = new Rules<>();
 
     Rules<Serializable> rules2 = new Rules<>();
-    rules2.addRule("Id", mock(Rule.class));
     rules2.addRule("42", mock(Rule.class));
+    rules2.addRule("\"EmployeeDataAccessRule\"", mock(Rule.class));
 
     // Act and Assert
     assertNotEquals(rules, rules2);

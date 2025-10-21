@@ -55,27 +55,31 @@ class DirectoryResourceDiffblueTest {
    * Test {@link DirectoryResource#id(String)}.
    *
    * <ul>
-   *   <li>When {@code 42}.
-   *   <li>Then createDirectoryResource Id is {@code 42/}.
+   *   <li>Then createDirectoryResource Id is {@code
+   *       "file:/user/home/documents/palisade/testDirectory"/}.
    * </ul>
    *
    * <p>Method under test: {@link DirectoryResource#id(String)}
    */
   @Test
-  @DisplayName("Test id(String); when '42'; then createDirectoryResource Id is '42/'")
+  @DisplayName(
+      "Test id(String); then createDirectoryResource Id is '\"file:/user/home/documents/palisade/testDirectory\"/'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"DirectoryResource DirectoryResource.id(String)"})
-  void testId_when42_thenCreateDirectoryResourceIdIs42() {
+  void testId_thenCreateDirectoryResourceIdIsFileUserHomeDocumentsPalisadeTestDirectory() {
     // Arrange
     DirectoryResource createDirectoryResourceResult =
         DirectoryResourceFactory.createDirectoryResource();
 
     // Act
-    DirectoryResource actualIdResult = createDirectoryResourceResult.id("42");
+    DirectoryResource actualIdResult =
+        createDirectoryResourceResult.id("\"file:/user/home/documents/palisade/testDirectory\"");
 
     // Assert
-    assertEquals("42/", createDirectoryResourceResult.getId());
+    assertEquals(
+        "\"file:/user/home/documents/palisade/testDirectory\"/",
+        createDirectoryResourceResult.getId());
     assertSame(createDirectoryResourceResult, actualIdResult);
   }
 

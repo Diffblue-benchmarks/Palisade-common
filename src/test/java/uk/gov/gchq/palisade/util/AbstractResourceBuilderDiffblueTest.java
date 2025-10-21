@@ -38,24 +38,23 @@ class AbstractResourceBuilderDiffblueTest {
    * Test {@link AbstractResourceBuilder#create(String)} with {@code uriString}.
    *
    * <ul>
-   *   <li>When {@code Uri String}.
    *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
    *
    * <p>Method under test: {@link AbstractResourceBuilder#create(String)}
    */
   @Test
-  @DisplayName(
-      "Test create(String) with 'uriString'; when 'Uri String'; then throw IllegalArgumentException")
+  @DisplayName("Test create(String) with 'uriString'; then throw IllegalArgumentException")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "uk.gov.gchq.palisade.resource.Resource AbstractResourceBuilder.create(String)"
   })
-  void testCreateWithUriString_whenUriString_thenThrowIllegalArgumentException() {
+  void testCreateWithUriString_thenThrowIllegalArgumentException() {
     // Arrange, Act and Assert
     assertThrows(
-        IllegalArgumentException.class, () -> AbstractResourceBuilder.create("Uri String"));
+        IllegalArgumentException.class,
+        () -> AbstractResourceBuilder.create("\"https://www.gchq.gov.uk/resource/data/file.txt\""));
   }
 
   /**
@@ -70,10 +69,11 @@ class AbstractResourceBuilderDiffblueTest {
   @MethodsUnderTest({"File AbstractResourceBuilder.createFile(String)"})
   void testCreateFile() {
     // Arrange and Act
-    File actualCreateFileResult = new FileResourceBuilder().createFile("Path");
+    File actualCreateFileResult =
+        new FileResourceBuilder().createFile("\"/home/user/Documents/testResource.txt\"");
 
     // Assert
-    assertEquals("Path", actualCreateFileResult.getName());
+    assertEquals("testResource.txt\"", actualCreateFileResult.getName());
     assertFalse(actualCreateFileResult.isAbsolute());
   }
 
@@ -190,8 +190,9 @@ class AbstractResourceBuilderDiffblueTest {
 
     // Assert
     assertTrue(actualFindBuilderResult instanceof FileResourceBuilder);
-    File createFileResult = actualFindBuilderResult.createFile("Path");
-    assertEquals("Path", createFileResult.getName());
+    File createFileResult =
+        actualFindBuilderResult.createFile("\"/home/user/Documents/testResource.txt\"");
+    assertEquals("testResource.txt\"", createFileResult.getName());
     assertFalse(createFileResult.isAbsolute());
   }
 }

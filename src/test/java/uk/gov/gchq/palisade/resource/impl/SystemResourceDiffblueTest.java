@@ -29,26 +29,28 @@ class SystemResourceDiffblueTest {
    * Test {@link SystemResource#id(String)}.
    *
    * <ul>
-   *   <li>When {@code 42}.
-   *   <li>Then {@link SystemResource} (default constructor) Id is {@code 42/}.
+   *   <li>Then {@link SystemResource} (default constructor) Id is {@code
+   *       "file:/usr/local/palisade/data/resource1.txt"/}.
    * </ul>
    *
    * <p>Method under test: {@link SystemResource#id(String)}
    */
   @Test
-  @DisplayName("Test id(String); when '42'; then SystemResource (default constructor) Id is '42/'")
+  @DisplayName(
+      "Test id(String); then SystemResource (default constructor) Id is '\"file:/usr/local/palisade/data/resource1.txt\"/'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"SystemResource SystemResource.id(String)"})
-  void testId_when42_thenSystemResourceIdIs42() {
+  void testId_thenSystemResourceIdIsFileUsrLocalPalisadeDataResource1Txt() {
     // Arrange
     SystemResource systemResource = new SystemResource();
 
     // Act
-    SystemResource actualIdResult = systemResource.id("42");
+    SystemResource actualIdResult =
+        systemResource.id("\"file:/usr/local/palisade/data/resource1.txt\"");
 
     // Assert
-    assertEquals("42/", systemResource.getId());
+    assertEquals("\"file:/usr/local/palisade/data/resource1.txt\"/", systemResource.getId());
     assertSame(systemResource, actualIdResult);
   }
 
