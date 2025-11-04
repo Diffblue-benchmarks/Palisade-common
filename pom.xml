@@ -111,27 +111,37 @@
         </snapshotRepository>
     </distributionManagement>
 
-    <dependencies>
-        <!--
+  <dependencies>
+    <!--
         ~ Akka Reactive Streams
         -->
-        <dependency>
-            <!-- Core Akka streaming API -->
-            <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-stream_${scala.version}</artifactId>
-            <version>${akka.version}</version>
-            <scope>provided</scope>
-        </dependency>
+    <dependency>
+      <!-- Core Akka streaming API -->
+      <groupId>com.typesafe.akka</groupId>
+      <artifactId>akka-stream_${scala.version}</artifactId>
+      <version>${akka.version}</version>
+      <scope>provided</scope>
+    </dependency>
 
-        <!--
+    <!--
         ~ JSON Serialisation/De-serialisation Dependencies
         -->
-        <dependency>
-            <!-- Core Jackson ObjectMapper API -->
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
+    <dependency>
+      <!-- Core Jackson ObjectMapper API -->
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.11.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>5.14.1</version>
+    </dependency>
 
         <dependency>
             <!-- Avro core components -->
