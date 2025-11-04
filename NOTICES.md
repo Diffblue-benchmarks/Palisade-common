@@ -1,6 +1,7 @@
 List of third-party dependencies grouped by their license type
 
 ### [Apache Software License 2.0](./licenses/apache_software_license_2.0.txt):
+* Cover Annotations ([com.diffblue.cover:cover-annotations:1.3.0](https://www.diffblue.com/))
 * jackson-databind ([com.fasterxml.jackson.core:jackson-databind:2.11.0](http://github.com/FasterXML/jackson))
 * akka-stream ([com.typesafe.akka:akka-stream_2.13:2.6.10](https://akka.io/))
 
