@@ -128,6 +128,15 @@ public class UriBuilder {
                 return withPort(null);
             }
         }
+
+        /**
+         * For testing purposes only
+         *
+         * @return the uri of the resource to create
+         */
+        public Optional getBaseUri() {
+            return baseUri;
+        }
     }
 
     private Optional<URI> baseUri = Optional.empty();
@@ -307,4 +316,12 @@ public class UriBuilder {
         }
     }
 
+    /**
+     * For testing purposes only
+     *
+     * @return the uri of the resource to create
+     */
+    public Optional getBaseUri() {
+        return baseUri;
+    }
 }
