@@ -1,0 +1,7 @@
+name: com.diffblue.cover.refactoring.Recipe
+recipeList:
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: uk.gov.gchq.palisade.util.UriBuilder,
+    fieldName: baseUri}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: uk.gov.gchq.palisade.util.UriBuilder$AuthorityBuilder,
+    fieldName: baseUri}
+type: specs.openrewrite.org/v1beta/recipe
