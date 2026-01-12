@@ -1,0 +1,139 @@
+INFO  Diffblue Cover 2025.12.02-74144f0-licensed
+INFO  
+INFO  Command: issues
+INFO  Output a prioritized list of issues.
+INFO  
+INFO  Discovered modules:
+INFO  - uk.gov.gchq.palisade:common
+INFO  
+INFO  
+INFO  [1/1] Diagnosing issues for module: uk.gov.gchq.palisade:common
+INFO  ===============================================================
+INFO  
+INFO  Detected Java version 11.0.29
+INFO  Selected build system: Maven
+INFO  Reading report file '/home/jbergqvist/diffblue/Palisade-common/.diffblue/reports/report.json'
+INFO  Copied report file to '/home/jbergqvist/diffblue/Palisade-common/.diffblue/reports/report-20260112T125407.json'
+INFO  
+INFO  R005: Unable to load class
+      Class: akka.actor.CoordinatedShutdown$ActorSystemTerminateReason
+      Please check that the class is available on your test runtime classpath.
+      See https://diff.blue/R005 to resolve this issue.
+      
+INFO  Affected methods:
+      uk.gov.gchq.palisade.util.RulesUtil.applyRulesToItem:(Ljava/io/Serializable;Luk/gov/gchq/palisade/user/User;Luk/gov/gchq/palisade/Context;Luk/gov/gchq/palisade/rule/Rules;)Ljava/io/Serializable;
+      
+INFO  
+INFO  R013: No inputs found that don't throw a trivial exception
+      Diffblue Cover tried to run the arrange/act section, but the test threw
+      java.lang.NullPointerException
+          at java.util.ImmutableCollections$Set12.contains(ImmutableCollections.java:524)
+          at uk.gov.gchq.palisade.util.FileResourceBuilder.accepts(FileResourceBuilder.java:109)
+          at uk.gov.gchq.palisade.util.AbstractResourceBuilder.lambda$create$0(AbstractResourceBuilder.java:58)
+          at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:176)
+          at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+          at java.util.ServiceLoader$ProviderSpliterator.tryAdvance(ServiceLoader.java:1492)
+          at java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:127)
+          at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:502)
+          at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:488)
+          at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+          at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
+          at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+          at java.util.stream.ReferencePipeline.findAny(ReferencePipeline.java:548)
+          at uk.gov.gchq.palisade.util.AbstractResourceBuilder.create(AbstractResourceBuilder.java:59)
+          at uk.gov.gchq.palisade.resource.impl.DirectoryResource.getParent(DirectoryResource.java:39)
+      In order to prevent the method under test
+      from throwing NullPointerException, add constructors or factory
+      methods that make it easier to construct fully initialized objects used in
+      the method under test.
+      See https://diff.blue/R013 to resolve this issue.
+      
+INFO  Affected methods:
+      uk.gov.gchq.palisade.resource.impl.DirectoryResource.getParent:()Luk/gov/gchq/palisade/resource/ParentResource;
+      
+INFO  To resolve the issue, use the following prompt with your AI assistant:
+      
+      We are unit testing `uk.gov.gchq.palisade.resource.impl.DirectoryResource.getParent:()Luk/gov/gchq/palisade/resource/ParentResource;`.
+      
+      Create a parameterless factory method for the problematic
+      parameter/this object, determining which by reading the error message below.
+      The new factory method should be in the test classpath, not production.
+      Create a new factory class if there isn't already one for the class under test.
+      Do not create a test yourself, only a factory (don't test the factory either).
+      The factory must be annotated with `@com.diffblue.cover.annotations.InterestingTestFactory`.
+      Avoid using mocks, these tend to produce unused stubbing errors or a
+      `java.lang.NullPointerException`.
+      If your environment has internet access then further documentation on
+      factory methods for Cover can be found here:
+      https://docs.diffblue.com/features/tutorials/increase-code-coverage#test-factory-pattern
+      
+      The factory should produce a parameter/this object such that
+      the following exception does not occur:
+      
+      ```
+      java.lang.NullPointerException
+        at java.util.ImmutableCollections$Set12.contains(ImmutableCollections.java:524)
+        at uk.gov.gchq.palisade.util.FileResourceBuilder.accepts(FileResourceBuilder.java:109)
+        at uk.gov.gchq.palisade.util.AbstractResourceBuilder.lambda$create$0(AbstractResourceBuilder.java:58)
+        at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:176)
+        at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+        at java.util.ServiceLoader$ProviderSpliterator.tryAdvance(ServiceLoader.java:1492)
+        at java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:127)
+        at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:502)
+        at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:488)
+        at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+        at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
+        at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+        at java.util.stream.ReferencePipeline.findAny(ReferencePipeline.java:548)
+        at uk.gov.gchq.palisade.util.AbstractResourceBuilder.create(AbstractResourceBuilder.java:59)
+        at uk.gov.gchq.palisade.resource.impl.DirectoryResource.getParent(DirectoryResource.java:39)
+      ```
+      
+      Recompile the project to make sure the new factory is available to Cover.
+      For example run `mvn install -DskipTests` or `gradle install -x test`.
+      
+INFO  
+INFO  R013: No inputs found that don't throw a trivial exception
+      Diffblue Cover tried to run the arrange/act section, but the test threw
+      java.lang.NullPointerException
+      In order to prevent the method under test
+      from throwing NullPointerException, add constructors or factory
+      methods that make it easier to construct fully initialized objects used in
+      the method under test.
+      See https://diff.blue/R013 to resolve this issue.
+      
+INFO  Affected methods:
+      uk.gov.gchq.palisade.resource.impl.FileResource.getParent:()Luk/gov/gchq/palisade/resource/ParentResource;
+      
+INFO  To resolve the issue, use the following prompt with your AI assistant:
+      
+      We are unit testing `uk.gov.gchq.palisade.resource.impl.FileResource.getParent:()Luk/gov/gchq/palisade/resource/ParentResource;`.
+      
+      Create a parameterless factory method for the problematic
+      parameter/this object, determining which by reading the error message below.
+      The new factory method should be in the test classpath, not production.
+      Create a new factory class if there isn't already one for the class under test.
+      Do not create a test yourself, only a factory (don't test the factory either).
+      The factory must be annotated with `@com.diffblue.cover.annotations.InterestingTestFactory`.
+      Avoid using mocks, these tend to produce unused stubbing errors or a
+      `java.lang.NullPointerException`.
+      If your environment has internet access then further documentation on
+      factory methods for Cover can be found here:
+      https://docs.diffblue.com/features/tutorials/increase-code-coverage#test-factory-pattern
+      
+      The factory should produce a parameter/this object such that
+      the following exception does not occur:
+      
+      ```
+      java.lang.NullPointerException
+      ```
+      
+      Recompile the project to make sure the new factory is available to Cover.
+      For example run `mvn install -DskipTests` or `gradle install -x test`.
+      
+INFO  
+INFO  3 issues were found and displayed
+INFO  Rerun without --prompts to summarise all the issues
+INFO  
+INFO  Log file: /home/jbergqvist/diffblue/Palisade-common/.diffblue/log/user-20260112T125942.log
+INFO  Finished in 4s

@@ -13,6 +13,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import uk.gov.gchq.palisade.resource.ConnectionDetail;
+import uk.gov.gchq.palisade.resource.ParentResource;
 
 class FileResourceDiffblueTest {
   /**
@@ -49,14 +50,14 @@ class FileResourceDiffblueTest {
   @MethodsUnderTest({"FileResource FileResource.id(String)"})
   void testId() {
     // Arrange
-    FileResource fileResource = new FileResource();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    FileResource actualIdResult = fileResource.id("42");
+    FileResource actualIdResult = createFileResourceResult.id("42");
 
     // Assert
-    assertEquals("42", fileResource.getId());
-    assertSame(fileResource, actualIdResult);
+    assertEquals("42", createFileResourceResult.getId());
+    assertSame(createFileResourceResult, actualIdResult);
   }
 
   /**
@@ -71,14 +72,14 @@ class FileResourceDiffblueTest {
   @MethodsUnderTest({"FileResource FileResource.type(String)"})
   void testType() {
     // Arrange
-    FileResource fileResource = new FileResource();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    FileResource actualTypeResult = fileResource.type("Type");
+    FileResource actualTypeResult = createFileResourceResult.type("Type");
 
     // Assert
-    assertEquals("Type", fileResource.getType());
-    assertSame(fileResource, actualTypeResult);
+    assertEquals("Type", createFileResourceResult.getType());
+    assertSame(createFileResourceResult, actualTypeResult);
   }
 
   /**
@@ -93,43 +94,45 @@ class FileResourceDiffblueTest {
   @MethodsUnderTest({"FileResource FileResource.serialisedFormat(String)"})
   void testSerialisedFormat() {
     // Arrange
-    FileResource fileResource = new FileResource();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    FileResource actualSerialisedFormatResult = fileResource.serialisedFormat("Serialised Format");
+    FileResource actualSerialisedFormatResult =
+        createFileResourceResult.serialisedFormat("Serialised Format");
 
     // Assert
-    assertEquals("Serialised Format", fileResource.getSerialisedFormat());
-    assertSame(fileResource, actualSerialisedFormatResult);
+    assertEquals("Serialised Format", createFileResourceResult.getSerialisedFormat());
+    assertSame(createFileResourceResult, actualSerialisedFormatResult);
   }
 
   /**
    * Test {@link FileResource#connectionDetail(ConnectionDetail)}.
    *
    * <ul>
-   *   <li>Given {@link FileResource} (default constructor).
-   *   <li>Then return {@link FileResource} (default constructor).
+   *   <li>Given createFileResource.
+   *   <li>Then return createFileResource.
    * </ul>
    *
    * <p>Method under test: {@link FileResource#connectionDetail(ConnectionDetail)}
    */
   @Test
   @DisplayName(
-      "Test connectionDetail(ConnectionDetail); given FileResource (default constructor); then return FileResource (default constructor)")
+      "Test connectionDetail(ConnectionDetail); given createFileResource; then return createFileResource")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"FileResource FileResource.connectionDetail(ConnectionDetail)"})
-  void testConnectionDetail_givenFileResource_thenReturnFileResource() {
+  void testConnectionDetail_givenCreateFileResource_thenReturnCreateFileResource() {
     // Arrange
-    FileResource fileResource = new FileResource();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
     ConnectionDetail connectionDetail = mock(ConnectionDetail.class);
 
     // Act
-    FileResource actualConnectionDetailResult = fileResource.connectionDetail(connectionDetail);
+    FileResource actualConnectionDetailResult =
+        createFileResourceResult.connectionDetail(connectionDetail);
 
     // Assert
-    assertSame(fileResource, actualConnectionDetailResult);
-    assertSame(connectionDetail, fileResource.getConnectionDetail());
+    assertSame(createFileResourceResult, actualConnectionDetailResult);
+    assertSame(connectionDetail, createFileResourceResult.getConnectionDetail());
   }
 
   /**
@@ -144,13 +147,13 @@ class FileResourceDiffblueTest {
   @MethodsUnderTest({"FileResource FileResource.attributes(Map)"})
   void testAttributes() {
     // Arrange
-    FileResource fileResource = new FileResource();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    FileResource actualAttributesResult = fileResource.attributes(new HashMap<>());
+    FileResource actualAttributesResult = createFileResourceResult.attributes(new HashMap<>());
 
     // Assert
-    assertSame(fileResource, actualAttributesResult);
+    assertSame(createFileResourceResult, actualAttributesResult);
   }
 
   /**
@@ -165,12 +168,42 @@ class FileResourceDiffblueTest {
   @MethodsUnderTest({"FileResource FileResource.attribute(String, String)"})
   void testAttribute() {
     // Arrange
-    FileResource fileResource = new FileResource();
+    FileResource createFileResourceResult = FileResourceFactory.createFileResource();
 
     // Act
-    FileResource actualAttributeResult = fileResource.attribute("Attribute Key", "42");
+    FileResource actualAttributeResult = createFileResourceResult.attribute("Attribute Key", "42");
 
     // Assert
-    assertSame(fileResource, actualAttributeResult);
+    assertSame(createFileResourceResult, actualAttributeResult);
+  }
+
+  /**
+   * Test {@link FileResource#getParent()}.
+   *
+   * <ul>
+   *   <li>Given createFileResource.
+   *   <li>Then Parent return {@link DirectoryResource}.
+   * </ul>
+   *
+   * <p>Method under test: {@link FileResource#getParent()}
+   */
+  @Test
+  @DisplayName("Test getParent(); given createFileResource; then Parent return DirectoryResource")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"ParentResource FileResource.getParent()"})
+  void testGetParent_givenCreateFileResource_thenParentReturnDirectoryResource() {
+    // Arrange and Act
+    ParentResource actualParent = FileResourceFactory.createFileResource().getParent();
+
+    // Assert
+    ParentResource parent = ((DirectoryResource) actualParent).getParent();
+    assertTrue(parent instanceof DirectoryResource);
+    assertTrue(actualParent instanceof DirectoryResource);
+    ParentResource parent2 = ((DirectoryResource) parent).getParent();
+    assertTrue(parent2 instanceof SystemResource);
+    assertEquals("file:/", parent2.getId());
+    assertEquals("file:/test/", parent.getId());
+    assertEquals("file:/test/directory/", actualParent.getId());
   }
 }

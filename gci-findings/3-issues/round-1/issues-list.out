@@ -1,0 +1,30 @@
+INFO  Diffblue Cover 2025.12.02-74144f0-licensed
+INFO  
+INFO  Command: issues
+INFO  Output a prioritized list of issues.
+INFO  
+INFO  Discovered modules:
+INFO  - uk.gov.gchq.palisade:common
+INFO  
+INFO  
+INFO  [1/1] Diagnosing issues for module: uk.gov.gchq.palisade:common
+INFO  ===============================================================
+INFO  
+INFO  Detected Java version 11.0.29
+INFO  Selected build system: Maven
+INFO  Reading report file '/home/jbergqvist/diffblue/Palisade-common/.diffblue/reports/report.json'
+INFO  Copied report file to '/home/jbergqvist/diffblue/Palisade-common/.diffblue/reports/report-20260112T125407.json'
+INFO  
+INFO  R005: Unable to load class
+INFO  Issues: 1
+INFO  Affected methods: 1
+INFO  
+INFO  R013: No inputs found that don't throw a trivial exception
+INFO  Issues: 2
+INFO  Affected methods: 2
+INFO  
+INFO  3 issues were found, rerun with --prompts to list with actionable advice
+INFO  Rerun with --prompts --limit 10 --skip 10 to restrict which issues are displayed
+INFO  
+INFO  Log file: /home/jbergqvist/diffblue/Palisade-common/.diffblue/log/user-20260112T125920.log
+INFO  Finished in 4s
