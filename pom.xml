@@ -484,6 +484,10 @@
                 <configuration>
                     <destFile>${sonar.jacoco.reportPath}</destFile>
                     <append>true</append>
+                    <excludes>
+                        <exclude>uk/gov/gchq/palisade/resource/AbstractLeafResource*</exclude>
+                        <exclude>uk/gov/gchq/palisade/resource/impl/SimpleConnectionDetail*</exclude>
+                    </excludes>
                 </configuration>
                 <executions>
                     <execution>
