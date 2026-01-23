@@ -23,4 +23,4 @@ uk.gov.gchq.palisade:common:jar:0.5.2-SNAPSHOT
 |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.11.0:compile
 |  \- com.fasterxml.jackson.core:jackson-core:jar:2.11.0:compile
 +- org.slf4j:slf4j-api:jar:1.7.25:compile
-\- com.diffblue.cover:cover-annotations:jar:1.7.0:provided
+\- com.diffblue.cover:cover-annotations:jar:1.9.0:provided
